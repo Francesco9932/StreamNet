@@ -1,0 +1,15 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+  <nav th:replace = "/fragments/components.html :: navbar"></nav>
+  
+  <div class="container-opere">
+        <div th:each="opera,iterStat : ${opere}" th:if="${iterStat.index}<5">
+			<img class = "opera-image" th:src="${opera.immagine}" alt="Impossibile caricare immagine dell'opera">
+		</div>
+    </div>
+  <footer th:replace = "/fragments/components.html :: footer"></footer>
+</body>
+</html>

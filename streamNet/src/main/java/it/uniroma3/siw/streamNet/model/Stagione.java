@@ -20,7 +20,7 @@ public class Stagione {
 	@Column
 	private String descrizione;
 	
-	@ManyToOne()
+	@ManyToOne
 	private SerieTv serieTv;
 	
 	@OneToMany(mappedBy = "stagione")

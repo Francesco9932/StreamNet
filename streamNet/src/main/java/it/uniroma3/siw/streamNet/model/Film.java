@@ -24,7 +24,7 @@ public class Film {
 	private String descrizione;
 	
 	@Column
-	private String cast;
+	private String attori;
 	
 	@Column
 	private int annoDiUscita;
@@ -33,7 +33,7 @@ public class Film {
 	private String lingua;
 	
 	@ManyToOne()
-	private Regista regista;
+	private Regista registaFilm;
 
 	public Long getId() {
 		return id;
@@ -67,14 +67,6 @@ public class Film {
 		this.descrizione = descrizione;
 	}
 
-	public String getCast() {
-		return cast;
-	}
-
-	public void setCast(String cast) {
-		this.cast = cast;
-	}
-
 	public int getAnnoDiUscita() {
 		return annoDiUscita;
 	}
@@ -91,11 +83,19 @@ public class Film {
 		this.lingua = lingua;
 	}
 
-	public Regista getRegista() {
-		return regista;
+	public Regista getRegistaFilm() {
+		return registaFilm;
 	}
 
-	public void setRegista(Regista regista) {
-		this.regista = regista;
+	public void setRegistaFilm(Regista registaFilm) {
+		this.registaFilm = registaFilm;
+	}
+
+	public String getAttori() {
+		return attori;
+	}
+
+	public void setAttori(String attori) {
+		this.attori = attori;
 	}
 }

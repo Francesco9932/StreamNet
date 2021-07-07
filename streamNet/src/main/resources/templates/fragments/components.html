@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="headerfiles(title)">
+	<meta charset="UTF-8" />
+	<link th:href="@{/css/style.css}" rel="stylesheet">
+	<title th:text="${title}"></title>
+	<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.15.3/css/all.css">
+</head>
+
+<body>
+	<header th:fragment = "navbar">
+		<h1 id="museoTitle">STREAMNET</h1>
+		<nav>
+    		<ul class="navbar">
+      			<li><a class="active" th:href="@{/default}">Home</a></li>
+      			<li><a href = "/artista">Serie TV</a></li>
+      			<li><a href="/collezioni">Film</a></li>
+      			<li><a href="/informazioni">La mia lista</a></li>
+   			</ul>
+  		</nav>
+  		<div class="container-register">
+  			<a th:href= "@{/register}"><i class="fas fa-user-circle"></i></a>
+  			<a th:href= "@{/register}"><i class="fas fa-search"></i></a>
+  		</div>
+	</header>
+  
+
+  <footer th:fragment = "footer">
+        <div class="footer-text">
+        	<div>
+        		<p>
+                	Sito web di STREAMNET.
+				</p>
+        	</div>
+        	<div>
+        		<p>
+                	© 2021 - 2021 STREAMNET
+				</p>
+        	</div>
+        </div>
+        <div class="footer-social">
+            <li>
+                <a href="#"><i class="fab fa-twitter-square" style="color:white";></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fab fa-google-plus-square" style="color:white";></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fab fa-facebook-square" style="color:white";></i></a>
+            </li>
+            <li>
+                <a href="#"><i class="fab fa-instagram-square" style="color:white";></i></a>
+            </li>
+        </div>
+</footer>
+</body>
+</html>

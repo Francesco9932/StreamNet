@@ -28,7 +28,7 @@ public class SerieTv {
 	private String descrizione;
 
 	@Column
-	private String cast;
+	private String attori;
 
 	@Column
 	private int annoDiUscita;
@@ -37,7 +37,7 @@ public class SerieTv {
 	private String lingua;
 
 	@ManyToOne()
-	private Regista regista;
+	private Regista registaSerie;
 
 	@OneToMany(mappedBy = "serieTv")
 	private List<Stagione> stagioni;
@@ -78,14 +78,6 @@ public class SerieTv {
 		this.descrizione = descrizione;
 	}
 
-	public String getCast() {
-		return cast;
-	}
-
-	public void setCast(String cast) {
-		this.cast = cast;
-	}
-
 	public int getAnnoDiUscita() {
 		return annoDiUscita;
 	}
@@ -102,11 +94,27 @@ public class SerieTv {
 		this.lingua = lingua;
 	}
 
-	public Regista getRegista() {
-		return regista;
+	public Regista getRegistaSerie() {
+		return registaSerie;
 	}
 
-	public void setRegista(Regista regista) {
-		this.regista = regista;
+	public void setRegistaSerie(Regista registaSerie) {
+		this.registaSerie = registaSerie;
+	}
+
+	public List<Stagione> getStagioni() {
+		return stagioni;
+	}
+
+	public void setStagioni(List<Stagione> stagioni) {
+		this.stagioni = stagioni;
+	}
+
+	public String getAttori() {
+		return attori;
+	}
+
+	public void setAttori(String attori) {
+		this.attori = attori;
 	}
 }

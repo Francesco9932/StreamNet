@@ -33,10 +33,10 @@ public class Regista {
 	@Column
 	private String biografia;
 	
-	@OneToMany(mappedBy = "regista")
+	@OneToMany(mappedBy = "registaFilm")
 	private List<Film> film;
 	
-	@OneToMany(mappedBy = "regista")
+	@OneToMany(mappedBy = "registaSerie")
 	private List<SerieTv> serieTv;
 	
 	public Regista() {
