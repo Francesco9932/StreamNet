@@ -4,7 +4,7 @@
 
 <body>
 	<nav th:replace="/fragments/components.html :: navbar"></nav>
-	<form th:action="@{/admin/newFilm}" method="POST" th:object="${film}">
+	<form th:action="@{/admin/film}" method="POST" th:object="${film}">
 		<div>
 			<div th:if="${#fields.hasGlobalErrors()}">
   				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
@@ -29,7 +29,7 @@
       			<span><input type="text" th:field="*{attori}"></span>
       			<span th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></span>
   			</div>
-  			<div>
+  			<div th:if="${registi}!=null">
       			<span>Regista:</span>
     			<select th:field="*{registaFilm}">
     				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>

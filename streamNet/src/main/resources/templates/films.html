@@ -4,7 +4,11 @@
 
 <body>
   <nav th:replace = "/fragments/components.html :: navbar"></nav>
-  <p>Lista film</p>
+  <ul >
+  	<li th:each="film : ${films}">
+  		<a th:href="@{'/admin/modificaFilm' + '/' + ${film.id}}" th:text="${film.titolo}"></a>
+  	</li>
+  </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>
