@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+	<nav th:replace="/fragments/components.html :: navbar"></nav>
+	<form th:action="@{/admin/serie}" method="POST" th:object="${serie}">
+		<div>
+			<div th:if="${#fields.hasGlobalErrors()}">
+  				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+			</div>
+			<div>
+      			<span >Titolo:</span>
+      			<span><input type="text" th:field="*{titolo}"></span>
+      			<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+  			</div>
+  			<div>
+      			<span>Anno di uscita:</span>
+      			<span><input type="text" th:field="*{annoDiUscita}"></span>
+      			<span th:if="${#fields.hasErrors('annoDiUscita')}" th:errors="*{annoDiUscita}"></span>
+  			</div>
+  			<div>
+      			<span>Descrizione:</span>
+      			<span><input type="text" th:field="*{descrizione}"></span>
+      			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+  			</div>
+  			<div>
+      			<span>Attori:</span>
+      			<span><input type="text" th:field="*{attori}"></span>
+      			<span th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></span>
+  			</div>
+  			<div th:if="${registi}!=null">
+      			<span>Regista:</span>
+    			<select th:field="*{registaserie}">
+    				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
+    			</select>
+  			</div>
+  			<div id="submit-button">
+      			<span><button type="submit">Invio</button></span>
+  			</div>
+		</div>
+	</form>
+	<footer th:replace="/fragments/components.html :: footer"></footer>
+</body>
+</html>

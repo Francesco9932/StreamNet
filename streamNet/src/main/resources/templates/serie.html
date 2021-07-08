@@ -1,0 +1,19 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+  <nav th:replace = "/fragments/components.html :: navbar"></nav>
+  
+  <div>
+  	<form th:if="${serie.nellaMiaLista}==false" th:action="@{'/aggiungiserieAllaMiaLista' + '/' + ${serie.id}}" method="GET" th:object="${serie}">
+  		<button type="submit">Aggiungi a La mia lista</button>
+ 	</form>
+  	<form th:unless="${serie.nellaMiaLista}==false" th:action="@{'/rimuoviserieDallaMiaLista' + '/' + ${serie.id}}" method="GET" th:object="${serie}">
+  		<button type="submit">Rimuovi da La mia lista</button>
+  	</form>
+  </div>
+  
+  <footer th:replace = "/fragments/components.html :: footer"></footer>
+</body>
+</html>
