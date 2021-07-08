@@ -31,7 +31,7 @@ public class UtenteService {
 	}
 	
 	@Transactional
-	public List<Utente> getUsers(){
+	public List<Utente> getUtenti(){
 		List<Utente> result = new ArrayList<>();
 		Iterable<Utente> iterable = this.utenteRepository.findAll();
 		for(Utente u : iterable)

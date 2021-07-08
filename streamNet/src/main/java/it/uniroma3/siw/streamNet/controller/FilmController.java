@@ -34,7 +34,7 @@ public class FilmController {
 		this.filmValidator.validate(film, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.streamNetService.aggiungiFilm(film);
-			return "index.html";
+			return "redirect:/films";
 		}
 		return "filmForm.html";
 	}

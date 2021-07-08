@@ -1,4 +1,4 @@
-package it.uniroma3.siw.streamNet.controller;
+ package it.uniroma3.siw.streamNet.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,7 +45,7 @@ public class AuthenticationController {
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logut(Model model, HttpServletRequest request, HttpServletResponse response) {
+	public String logout(Model model, HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    if (auth != null){    
 	        new SecurityContextLogoutHandler().logout(request, response, auth);
@@ -55,7 +55,6 @@ public class AuthenticationController {
 	
 	@RequestMapping(value = "/default", method = RequestMethod.GET)
     public String defaultAfterLogin(Model model) {
-        
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credenziali credenziali = credenzialiService.getCredenziali(userDetails.getUsername());
     	if (credenziali.getRuolo().equals(Credenziali.RUOLO_ADMIN)) {
@@ -74,8 +73,8 @@ public class AuthenticationController {
 		if(!utenteBindingResult.hasErrors() && !credenzialiBindingResult.hasErrors()) {
 			credenziali.setUtente(utente);
 			credenzialiService.salvaCredenziali(credenziali);
-			return "redirect:/default";
+			return "redirect:/login";
 		}
-		return "registrazione.html";
+		return "registrazioneForm.html";
 	}
 }
