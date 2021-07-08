@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.museo})"></head>
+
+<body>
+  <nav th:replace = "/fragments/components.html :: navbar"></nav>
+  <div class="container-menu-amministratore">
+  	<h1>Menu Amministratore</h1>
+  	<div class="operazioni">
+  		<a href="/aggiungFilm">Aggiungi film</a>
+  	</div>
+  	<div class="operazioni">
+  		<a href="/aggiungiSerie">Aggiungi serieTV</a>
+  	</div>
+  	<div class="operazioni">
+  		<a href="/rimuoviSerie">Rimuovi serieTV</a>
+  	</div>
+  	<div class="operazioni">
+  		<a href="/rimuoviFilm">Rimuovi film</a>
+  	</div>
+  </div>
+</body>
+</html>
