@@ -87,8 +87,7 @@ public class FilmController {
 		Film film = this.streamNetService.getFilmPerId(id);
 		film.setNellaMiaLista(true);
 		this.streamNetService.aggiungiFilm(film);
-		model.addAttribute("films",this.streamNetService.getAllFilm());
-		return "laMiaLista.html";
+		return "redirect:/film/{id}";
 	}
 	
 	@RequestMapping(value = "/rimuoviFilmDallaMiaLista/{id}",method = RequestMethod.GET)
@@ -96,7 +95,6 @@ public class FilmController {
 		Film film = this.streamNetService.getFilmPerId(id);
 		film.setNellaMiaLista(false);
 		this.streamNetService.aggiungiFilm(film);
-		model.addAttribute("films",this.streamNetService.getAllFilm());
-		return "laMiaLista.html";
+		return "redirect:/film/{id}";
 	}
 }
