@@ -81,4 +81,22 @@ public class FilmController {
 		model.addAttribute("registaFilm", this.streamNetService.getRegistaPerId(id));
 		return "filmForm.html";
 	}
+	
+	@RequestMapping(value = "/aggiungiFilmAllaMiaLista/{id}",method = RequestMethod.GET)
+	public String aggiungiFilmAllaMiaLista(@PathVariable("id") Long id, Model model) {
+		Film film = this.streamNetService.getFilmPerId(id);
+		film.setNellaMiaLista(true);
+		this.streamNetService.aggiungiFilm(film);
+		model.addAttribute("films",this.streamNetService.getAllFilm());
+		return "laMiaLista.html";
+	}
+	
+	@RequestMapping(value = "/rimuoviFilmDallaMiaLista/{id}",method = RequestMethod.GET)
+	public String rimuoviFilmDallaMiaLista(@PathVariable("id") Long id, Model model) {
+		Film film = this.streamNetService.getFilmPerId(id);
+		film.setNellaMiaLista(false);
+		this.streamNetService.aggiungiFilm(film);
+		model.addAttribute("films",this.streamNetService.getAllFilm());
+		return "laMiaLista.html";
+	}
 }

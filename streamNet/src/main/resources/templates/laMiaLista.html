@@ -4,10 +4,10 @@
 
 <body>
   <nav th:replace = "/fragments/components.html :: navbar"></nav>
-  <h1>Lista Film:</h1>
+  <h1>La mia lista:</h1>
   <ul>
   	<li th:each="film : ${films}">
-  		<a th:href="@{'/film' + '/' + ${film.id}}" th:text="${film.titolo}"></a>
+  		<p th:if="${film.nellaMiaLista}==true" th:text="${film.titolo}"></p>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

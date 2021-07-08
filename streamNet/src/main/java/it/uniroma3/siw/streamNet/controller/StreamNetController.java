@@ -12,17 +12,23 @@ import it.uniroma3.siw.streamNet.service.StreamNetService;
 public class StreamNetController {
 
 	@Autowired
-	private StreamNetService streamnetService;
+	private StreamNetService streamNetService;
 	
 	@RequestMapping( value = "/films", method = RequestMethod.GET)
 	public String getAllFilm(Model model){
-		model.addAttribute("films", this.streamnetService.getAllFilm());
+		model.addAttribute("films", this.streamNetService.getAllFilm());
 		return "films.html";
+	}
+	
+	@RequestMapping( value = "/laMiaLista", method = RequestMethod.GET)
+	public String getLaMiaLista(Model model){
+		model.addAttribute("films", this.streamNetService.getAllFilm());
+		return "laMiaLista.html";
 	}
 	
 	@RequestMapping( value = "/getAllSerie", method = RequestMethod.GET)
 	public String getAllSerie(Model model) {
-		model.addAttribute("serieTvs", this.streamnetService.getAllSerie());
+		model.addAttribute("serieTvs", this.streamNetService.getAllSerie());
 		return "serieTv.html";
 	}
 }

@@ -31,9 +31,16 @@ public class Film {
 
 	@Column
 	private String lingua;
+	
+	@Column
+	private boolean nellaMiaLista;
 
 	@ManyToOne()
 	private Regista registaFilm;
+	
+	public Film() {
+		nellaMiaLista = false;
+	}
 
 	public Long getId() {
 		return id;
@@ -97,5 +104,13 @@ public class Film {
 
 	public void setAttori(String attori) {
 		this.attori = attori;
+	}
+
+	public boolean isNellaMiaLista() {
+		return nellaMiaLista;
+	}
+
+	public void setNellaMiaLista(boolean nellaMiaLista) {
+		this.nellaMiaLista = nellaMiaLista;
 	}
 }

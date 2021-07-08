@@ -35,6 +35,9 @@ public class SerieTv {
 
 	@Column
 	private String lingua;
+	
+	@Column
+	private boolean nellaMiaLista;
 
 	@ManyToOne()
 	private Regista registaSerie;
@@ -116,5 +119,13 @@ public class SerieTv {
 
 	public void setAttori(String attori) {
 		this.attori = attori;
+	}
+
+	public boolean isNellaMiaLista() {
+		return nellaMiaLista;
+	}
+
+	public void setNellaMiaLista(boolean nellaMiaLista) {
+		this.nellaMiaLista = nellaMiaLista;
 	}
 }
