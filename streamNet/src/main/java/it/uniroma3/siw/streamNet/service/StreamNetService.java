@@ -83,6 +83,11 @@ public class StreamNetService {
 	}
 	
 	@Transactional
+	public void rimuoviFilmPerId(Long id) {
+		this.filmRepository.deleteById(id);
+	}
+	
+	@Transactional
 	public SerieTv aggiungiSerie(SerieTv serie) {
 		return this.serieRepository.save(serie);
 	}

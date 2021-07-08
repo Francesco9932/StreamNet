@@ -28,6 +28,24 @@ public class FilmController {
 		return "filmForm.html";
 	}
 	
+	@RequestMapping(value = "/admin/filmDaRimuovere", method = RequestMethod.GET)
+	public String mostraFilmDaRimuovere(Model model) {
+		model.addAttribute("films",streamNetService.getAllFilm());
+		return "filmsRimozione.html";
+	} 
+	
+	@RequestMapping(value = "/admin/filmDaModificare", method = RequestMethod.GET)
+	public String mostraFilmDaModificare(Model model) {
+		model.addAttribute("films",streamNetService.getAllFilm());
+		return "filmsModifica.html";
+	} 
+	
+	@RequestMapping(value = "/admin/rimuoviFilm/{id}", method = RequestMethod.GET)
+	public String rimuoviFilm(@PathVariable("id") Long id, Model model) {
+		this.streamNetService.rimuoviFilmPerId(id);
+		return "redirect:/films";
+	}
+	
 	@RequestMapping(value="/admin/modificaFilm/{id}", method = RequestMethod.GET)
 	public String getFilmDaModificare(@PathVariable("id") Long id,Model model) {
 		Film film = this.streamNetService.getFilmPerId(id);
@@ -37,18 +55,7 @@ public class FilmController {
 		filmModificato.setTitolo(film.getTitolo());
 		filmModificato.setDescrizione(film.getDescrizione());
 		this.streamNetService.rimuoviFilm(film);
-		model.addAttribute("filmModificato",this.streamNetService.getFilmPerId(id));
-		return "filmForm.html";
-	}
-	
-	@RequestMapping( value = "/admin/modificaFilm", method = RequestMethod.POST)
-	public String modificaFilm(@ModelAttribute("filmModificato") Film filmModificato, @ModelAttribute("film") Film film,
-			               Model model, BindingResult bindingResult) {
-		this.filmValidator.validate(film, bindingResult);
-		if(!bindingResult.hasErrors()) {
-			this.streamNetService.aggiungiFilm(film);
-			return "redirect:/films";
-		}
+		model.addAttribute("film",filmModificato);
 		return "filmForm.html";
 	}
 	
@@ -74,6 +81,4 @@ public class FilmController {
 		model.addAttribute("registaFilm", this.streamNetService.getRegistaPerId(id));
 		return "filmForm.html";
 	}
-	
-	
 }

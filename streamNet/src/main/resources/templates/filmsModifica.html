@@ -4,7 +4,7 @@
 
 <body>
   <nav th:replace = "/fragments/components.html :: navbar"></nav>
-  <h1>Lista Film:</h1>
+  <h1>Film da modificare:</h1>
   <ul>
   	<li th:each="film : ${films}">
   		<a th:href="@{'/admin/modificaFilm' + '/' + ${film.id}}" th:text="${film.titolo}"></a>
