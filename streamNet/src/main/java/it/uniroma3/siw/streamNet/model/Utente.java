@@ -13,10 +13,10 @@ public class Utente {
 	@GeneratedValue(strategy = GenerationType.AUTO )
 	private Long id;
 	
-	@Column(nullable = false)
+	@Column
 	private String nome;
 	
-	@Column(nullable = false)
+	@Column
 	private String cognome;
 
 	public Long getId() {
@@ -42,6 +42,4 @@ public class Utente {
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
 	}
-	
-	
 }

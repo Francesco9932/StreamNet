@@ -88,11 +88,11 @@ public class StreamNetService {
 	}
 
 	public List<Film> getFilmRegista(Regista regista) {
-		return this.filmRepository.findByRegista(regista);
+		return this.filmRepository.findByRegistaFilm(regista);
 	}
 
 	public List<SerieTv> getSerieRegista(Regista regista) {
-		return this.serieRepository.findByRegista(regista);
+		return this.serieRepository.findByRegistaSerie(regista);
 	}
 }
 	

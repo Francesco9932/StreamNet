@@ -9,29 +9,29 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Film {
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column
 	private String titolo;
-	
+
 	@Column
 	private String genere;
-	
+
 	@Column
 	private String descrizione;
-	
+
 	@Column
 	private String attori;
-	
+
 	@Column
 	private int annoDiUscita;
-	
+
 	@Column
 	private String lingua;
-	
+
 	@ManyToOne()
 	private Regista registaFilm;
 

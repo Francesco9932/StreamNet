@@ -4,7 +4,12 @@
 
 <body>
   <nav th:replace = "/fragments/components.html :: navbar"></nav>
-  
+  <p>INDEX ADMIN</p>
+  <ul>
+  	<li><a th:href="@{/aggiungiFilm}">Aggiungi Film</a></li>
+  	<li><a th:href="@{/modificaFilm}">Modifica Film</a></li>
+  	<li><a th:href="@{/rimuoviFilm}">Rimuovi Film</a></li>
+  </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

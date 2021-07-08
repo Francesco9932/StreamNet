@@ -1,4 +1,4 @@
-package it.uniroma3.siw.streamNet.validator;
+package it.uniroma3.siw.streamNet.controller.validator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,27 +11,24 @@ import it.uniroma3.siw.streamNet.service.StreamNetService;
 
 @Component
 public class FilmValidator implements Validator{
-	
+
 	@Autowired
 	private StreamNetService streamNetService;
-	
-	@Override 
-	public void validate (Object o, Errors errors) {
-		
+
+	@Override
+	public boolean supports(Class<?> clazz) {
+		return Film.class.equals(clazz);
+	}
+
+	@Override
+	public void validate(Object o, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titolo", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "genere", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "annoDiUscita", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lingua", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "registaFilm", "required");
-		
+
 		if (!errors.hasErrors()) {
 			if (this.streamNetService.filmAlreadyExist((Film)o)) {
-				errors.reject("duplicato");
+				errors.reject("duplicatoCuratore");
 			}
+		}
 	}
-}
-	@Override
-	public boolean supports(Class<?> aClass) {
-		return Film.class.equals(aClass);
-	}
+
 }

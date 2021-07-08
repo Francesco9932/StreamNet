@@ -10,18 +10,18 @@
 
 <body>
 	<header th:fragment = "navbar">
-		<h1 id="museoTitle">STREAMNET</h1>
+		<h1>STREAMNET</h1>
 		<nav>
-    		<ul class="navbar">
+    		<ul class="navbar-ul">
       			<li><a class="active" th:href="@{/default}">Home</a></li>
-      			<li><a href = "/artista">Serie TV</a></li>
-      			<li><a href="/collezioni">Film</a></li>
-      			<li><a href="/informazioni">La mia lista</a></li>
+      			<li><a href = "/">Serie TV</a></li>
+      			<li><a href="/films">Film</a></li>
+      			<li><a href="/">La mia lista</a></li>
    			</ul>
   		</nav>
-  		<div class="container-register">
+  		<div>
   			<a th:href= "@{/register}"><i class="fas fa-user-circle"></i></a>
-  			<a th:href= "@{/register}"><i class="fas fa-search"></i></a>
+  			<a th:href= "@{/}"><i class="fas fa-search"></i></a>
   		</div>
 	</header>
   
@@ -39,7 +39,7 @@
 				</p>
         	</div>
         </div>
-        <div class="footer-social">
+        <ul class="footer-social">
             <li>
                 <a href="#"><i class="fab fa-twitter-square" style="color:white";></i></a>
             </li>
@@ -52,7 +52,7 @@
             <li>
                 <a href="#"><i class="fab fa-instagram-square" style="color:white";></i></a>
             </li>
-        </div>
+        </ul>
 </footer>
 </body>
 </html>

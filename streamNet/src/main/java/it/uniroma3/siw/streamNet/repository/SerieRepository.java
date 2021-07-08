@@ -11,5 +11,5 @@ public interface SerieRepository extends CrudRepository<SerieTv, Long> {
 	
 	public List<SerieTv> findByTitolo(String titolo);
 
-	public List<SerieTv> findByRegista(Regista regista);
+	public List<SerieTv> findByRegistaSerie(Regista regista);
 }

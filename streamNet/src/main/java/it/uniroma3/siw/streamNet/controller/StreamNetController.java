@@ -1,7 +1,5 @@
 package it.uniroma3.siw.streamNet.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,21 +14,15 @@ public class StreamNetController {
 	@Autowired
 	private StreamNetService streamnetService;
 	
-	@RequestMapping( value = "/getAllFilm ", method = RequestMethod.GET)
+	@RequestMapping( value = "/films ", method = RequestMethod.GET)
 	public String getAllFilm(Model model){
-		model.addAttribute("film", this.streamnetService.getAllFilm());
-		return "film.html";
+		model.addAttribute("films", this.streamnetService.getAllFilm());
+		return "films.html";
 	}
 	
 	@RequestMapping( value = "/getAllSerie", method = RequestMethod.GET)
 	public String getAllSerie(Model model) {
-		model.addAttribute("serie", this.streamnetService.getAllSerie());
+		model.addAttribute("serieTvs", this.streamnetService.getAllSerie());
 		return "serieTv.html";
 	}
-	
-	@RequestMapping( value = "/getIndex", method = RequestMethod.GET)
-	public String getIndex(Model model) {
-		return "index.html";
-	}
-	
 }

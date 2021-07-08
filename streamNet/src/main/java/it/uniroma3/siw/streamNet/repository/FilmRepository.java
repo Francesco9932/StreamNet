@@ -11,5 +11,5 @@ public interface FilmRepository extends CrudRepository<Film, Long>{
 	
 	public List<Film> findByTitolo(String titolo);
 
-	public List<Film> findByRegista(Regista regista);
+	public List<Film> findByRegistaFilm(Regista regista);
 }

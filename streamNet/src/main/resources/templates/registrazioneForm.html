@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/components.html :: headerfiles(title=#{pageTitle.registrazione})"> </head>
+<body>
+<div class="container-form">
+	<h1>Registrazione </h1>
+	<form th:action="@{/register}" method = "POST">
+	<div class="flex-form">
+        <div>
+            <div>Username</div>
+            <div><input type="text" placeholder="username" required th:field="${credenziali.username}"/></div>
+            <div th:if="${#fields.hasErrors('credenziali.username')}" th:errors="${credenziali.username}"></div>
+        </div>
+        <div>
+            <div>Password</div>
+            <div><input type="password" placeholder="password" required th:field="${credenziali.password}"/></div>
+            <div th:if="${#fields.hasErrors('credenziali.password')}" th:errors="${credenziali.password}"></div>
+        </div>
+        <div>
+            <div>Nome</div>
+            <div><input type="text" placeholder="nome" required th:field="${utente.nome}"/></div>
+            <div th:if="${#fields.hasErrors('utente.nome')}" th:errors="${utente.nome}"></div>
+        </div>
+        <div>
+            <div>Cognome</div>
+            <div><input type="text" placeholder="cognome" required th:field="${utente.cognome}"/></div>
+            <div th:if="${#fields.hasErrors('utente.cognome')}"  th:errors="${utente.cognome}"></div>
+        </div>
+        <div>
+            <div id="submit-button">
+                <button type="submit">Registra</button>
+                <a style="color: white;"href="/login">Ti sei già registrato? Accedi</a>
+            </div>
+        </div>
+        <div>
+                <a style="color: white;"href="/logout">Hai sbagliato account? Fai il logout</a>
+        </div>
+    </div>
+</form>
+</div>
+</body>
