@@ -87,10 +87,12 @@ public class StreamNetService {
 			return null;
 	}
 
+	@Transactional
 	public List<Film> getFilmRegista(Regista regista) {
 		return this.filmRepository.findByRegistaFilm(regista);
 	}
 
+	@Transactional
 	public List<SerieTv> getSerieRegista(Regista regista) {
 		return this.serieRepository.findByRegistaSerie(regista);
 	}

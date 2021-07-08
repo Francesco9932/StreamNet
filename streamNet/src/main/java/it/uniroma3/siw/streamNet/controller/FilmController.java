@@ -22,14 +22,14 @@ public class FilmController {
 	@Autowired 
 	private FilmValidator filmValidator;
 	
-	@RequestMapping ( value = "/aggiungiFilm", method = RequestMethod.GET)
+	@RequestMapping ( value = "/admin/aggiungiFilm", method = RequestMethod.GET)
 	public String aggiungiFilm(Model model) {
 		model.addAttribute("film", new Film());
 		return "filmForm.html";
 	}
 	
-	@RequestMapping( value = "/newFilm", method = RequestMethod.POST)
-	public String newFilm(@ModelAttribute("Film") Film film, 
+	@RequestMapping( value = "/admin/newFilm", method = RequestMethod.POST)
+	public String newFilm(@ModelAttribute("film") Film film, 
 			               Model model, BindingResult bindingResult) {
 		this.filmValidator.validate(film, bindingResult);
 		if(!bindingResult.hasErrors()) {

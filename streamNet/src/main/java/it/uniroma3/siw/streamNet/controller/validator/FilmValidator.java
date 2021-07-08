@@ -28,11 +28,10 @@ public class FilmValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "attori", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "annoDiUscita", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lingua", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "registaFilm", "required");
 
 		if (!errors.hasErrors()) {
 			if (this.streamNetService.filmAlreadyExist((Film)o)) {
-				errors.reject("duplicatoCuratore");
+				errors.reject("duplicatoFilm");
 			}
 		}
 	}

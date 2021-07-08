@@ -14,7 +14,7 @@ public class StreamNetController {
 	@Autowired
 	private StreamNetService streamnetService;
 	
-	@RequestMapping( value = "/films ", method = RequestMethod.GET)
+	@RequestMapping( value = "/films", method = RequestMethod.GET)
 	public String getAllFilm(Model model){
 		model.addAttribute("films", this.streamnetService.getAllFilm());
 		return "films.html";
