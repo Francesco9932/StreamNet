@@ -36,6 +36,11 @@ public class StreamNetService {
 		return (List<SerieTv>) serieRepository.findAll();
 	}
 	
+	@Transactional
+	public List<Regista> getAllRegista(){
+		return (List<Regista>) registaRepository.findAll();
+	}
+	
 	@Transactional 
 	public Film getFilmPerId(Long id){
 		Optional<Film> opzionale = this.filmRepository.findById(id);
@@ -48,6 +53,14 @@ public class StreamNetService {
 	@Transactional 
 	public SerieTv getSeriePerId(Long id){
 		Optional<SerieTv> opzionale = this.serieRepository.findById(id);
+		if(opzionale.isPresent())
+			return opzionale.get();
+		else
+			return null;
+	}
+	
+	public Regista getRegistaPerId(Long id){
+		Optional<Regista> opzionale = this.registaRepository.findById(id);
 		if(opzionale.isPresent())
 			return opzionale.get();
 		else
@@ -82,11 +95,6 @@ public class StreamNetService {
 	}
 	
 	@Transactional
-	public Film aggiungiFilm(Film film) {
-		return this.filmRepository.save(film);
-	}
-	
-	@Transactional
 	public void rimuoviFilm(Film film) {
 		this.filmRepository.delete(film);
 	}
@@ -94,6 +102,11 @@ public class StreamNetService {
 	@Transactional
 	public void rimuoviSerie(SerieTv serie) {
 		this.serieRepository.delete(serie);
+	}
+	
+	@Transactional
+	public void rimuoviRegista(Regista regista) {
+		this.registaRepository.delete(regista);
 	}
 	
 	@Transactional
@@ -107,6 +120,16 @@ public class StreamNetService {
 	}
 	
 	@Transactional
+	public void rimuoviRegistaPerId(Long id) {
+		this.registaRepository.deleteById(id);
+	}
+	
+	@Transactional
+	public Film aggiungiFilm(Film film) {
+		return this.filmRepository.save(film);
+	}
+	
+	@Transactional
 	public SerieTv aggiungiSerie(SerieTv serie) {
 		return this.serieRepository.save(serie);
 	}
@@ -116,14 +139,6 @@ public class StreamNetService {
 		return this.registaRepository.save(regista);
 	}
 	
-	@Transactional
-	public Regista getRegistaPerId(Long id) {
-		Optional<Regista>  optional = this.registaRepository.findById(id);
-		if(optional.isPresent())
-			return optional.get();
-		else 
-			return null;
-	}
 
 	@Transactional
 	public List<Film> getFilmRegista(Regista regista) {
@@ -134,6 +149,7 @@ public class StreamNetService {
 	public List<SerieTv> getSerieRegista(Regista regista) {
 		return this.serieRepository.findByRegistaSerie(regista);
 	}
+	
 }
 	
 

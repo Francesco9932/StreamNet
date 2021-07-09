@@ -1,7 +1,7 @@
 package it.uniroma3.siw.streamNet.repository;
 
-import it.uniroma3.siw.streamNet.model.Regista;
 import it.uniroma3.siw.streamNet.model.SerieTv;
+import it.uniroma3.siw.streamNet.model.Regista;
 
 import java.util.List;
 

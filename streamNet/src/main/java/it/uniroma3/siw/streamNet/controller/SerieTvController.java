@@ -43,7 +43,7 @@ public class SerieTvController {
 	@RequestMapping(value = "/admin/rimuoviSerie/{id}", method = RequestMethod.GET)
 	public String rimuoviSerie(@PathVariable("id") Long id, Model model) {
 		this.streamNetService.rimuoviSeriePerId(id);
-		return "series.html";
+		return "redirect:/series";
 	}
 	
 	@RequestMapping(value="/admin/modificaSerie/{id}", method = RequestMethod.GET)
@@ -65,7 +65,7 @@ public class SerieTvController {
 		this.serieValidator.validate(serie, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.streamNetService.aggiungiSerie(serie);
-			return "redirect:/default";
+			return "redirect:/series";
 		}
 		return "serieForm.html";
 	}
@@ -87,8 +87,7 @@ public class SerieTvController {
 		SerieTv serie = this.streamNetService.getSeriePerId(id);
 		serie.setNellaMiaLista(true);
 		this.streamNetService.aggiungiSerie(serie);
-		model.addAttribute("series",this.streamNetService.getAllSerie());
-		return "laMiaLista.html";
+		return "redirect:/serie/{id}";
 	}
 	
 	@RequestMapping(value = "/rimuoviSerieDallaMiaLista/{id}",method = RequestMethod.GET)
@@ -96,7 +95,6 @@ public class SerieTvController {
 		SerieTv serie = this.streamNetService.getSeriePerId(id);
 		serie.setNellaMiaLista(false);
 		this.streamNetService.aggiungiSerie(serie);
-		model.addAttribute("series",this.streamNetService.getAllSerie());
 		return "laMiaLista.html";
 	}
 }

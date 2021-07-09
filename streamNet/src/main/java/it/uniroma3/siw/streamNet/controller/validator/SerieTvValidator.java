@@ -25,10 +25,10 @@ public class SerieTvValidator implements Validator{
 	@Override
 	public void validate(Object o, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titolo", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "genere", "required");
+		//ValidationUtils.rejectIfEmptyOrWhitespace(errors, "genere", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descrizione", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "attori", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "annoDiUscita", "required");
+		//ValidationUtils.rejectIfEmptyOrWhitespace(errors, "annoDiUscita", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lingua", "required");
 
 		if (!errors.hasErrors() && !daModificare) {

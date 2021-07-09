@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/components.html :: headerfiles(title=#{pageTitle.rimozioneArtista})"></head>
+<body>
+    <div class="container-artisti">
+    	<h1>Regista da rimuovere:</h1>
+    	<em>
+    		<ul>
+        		<li th:each="regista : ${registi}">
+            	<a th:href="@{'/admin/rimuoviRegista' + '/' + ${regista.id}}" 
+             	th:text="|${regista.nome} ${regista.cognome}|">Nome cognome</a>
+        		</li>
+    		</ul>
+    	</em>
+    </div>
+</body>
+</html>

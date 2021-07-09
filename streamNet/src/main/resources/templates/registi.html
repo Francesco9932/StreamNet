@@ -1,0 +1,16 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+  <nav th:replace = "/fragments/components.html :: navbar"></nav>
+  <h1>Lista Registi:</h1>
+  <ul>
+  	<li th:each="regista : ${registi}">
+  		<a th:href="@{'/regista' + '/' + ${regista.id}}"
+  		th:text="|${regista.nome} ${regista.cognome}|"></a>
+  	</li>
+  </ul>
+  <footer th:replace = "/fragments/components.html :: footer"></footer>
+</body>
+</html>

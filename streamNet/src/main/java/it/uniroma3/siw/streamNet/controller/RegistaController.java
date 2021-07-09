@@ -20,19 +20,31 @@ public class RegistaController {
 	@Autowired
 	private RegistaValidator registaValidator;
 
-	@RequestMapping(value = "/aggiungiRegista", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/aggiungiRegista", method = RequestMethod.GET)
 	public String aggiungiRegista(Model model) {
 		model.addAttribute("regista", new Regista());
 		return "registaForm.html";
 	}
 	
-	@RequestMapping(value =  "/newRegista", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/registaDaRimuovere", method = RequestMethod.GET)
+	public String mostraRegistaDaRimuovere(Model model) {
+		model.addAttribute("registi",streamNetService.getAllRegista());
+		return "registaRimozione.html";
+	} 
+	
+	@RequestMapping(value = "/admin/registaDaModificare", method = RequestMethod.GET)
+	public String mostraRegistaDaModificare(Model model) {
+		model.addAttribute("films",streamNetService.getAllRegista());
+		return "registaModifica.html";
+	} 
+	
+	@RequestMapping(value =  "/admin/regista", method = RequestMethod.POST)
 	public String newRegista(@ModelAttribute Regista regista,
 			Model model, BindingResult bindingResult) {
 		this.registaValidator.validate(regista, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.streamNetService.aggiungiRegista(regista);
-			return "index.html";
+			return "redirect:/films";
 		}
 		else
 			return "registaForm.html";

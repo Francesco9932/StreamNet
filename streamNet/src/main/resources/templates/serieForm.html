@@ -31,7 +31,7 @@
   			</div>
   			<div th:if="${registi}!=null">
       			<span>Regista:</span>
-    			<select th:field="*{registaserie}">
+    			<select th:field="*{registaSerie}">
     				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
     			</select>
   			</div>
