@@ -34,6 +34,9 @@ public class Film {
 	
 	@Column
 	private boolean nellaMiaLista;
+	
+	@Column
+	private String video;
 
 	@ManyToOne()
 	private Regista registaFilm;
@@ -112,5 +115,13 @@ public class Film {
 
 	public void setNellaMiaLista(boolean nellaMiaLista) {
 		this.nellaMiaLista = nellaMiaLista;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
 	}
 }

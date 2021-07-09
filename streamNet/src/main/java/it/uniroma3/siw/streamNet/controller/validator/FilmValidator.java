@@ -14,8 +14,6 @@ public class FilmValidator implements Validator{
 
 	@Autowired
 	private StreamNetService streamNetService;
-	
-	private Boolean daModificare=false;
 
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -30,19 +28,12 @@ public class FilmValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "attori", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "annoDiUscita", "required");
 		//ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lingua", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "video", "required");
 
-		if (!errors.hasErrors() && !daModificare) {
+		if (!errors.hasErrors()) {
 			if (this.streamNetService.filmAlreadyExist((Film)o)) {
 				errors.reject("duplicatoFilm");
 			}
 		}
-	}
-
-	public Boolean getDaModificare() {
-		return daModificare;
-	}
-
-	public void setDaModificare(Boolean daModificare) {
-		this.daModificare = daModificare;
 	}
 }
