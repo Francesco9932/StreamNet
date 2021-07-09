@@ -1,0 +1,16 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+  <nav th:replace = "/fragments/components.html :: navbar"></nav>
+  
+  <ul>
+  	<li th:each="credenziali : ${credenziali}">
+  		<a th:href="'/admin/modificaAbbonamentoUtente' + '/' + ${credenziali.id}" th:text="|${credenziali.username} ${credenziali.abbonamento}|"></a>
+  	</li>
+  </ul>
+  
+  <footer th:replace = "/fragments/components.html :: footer"></footer>
+</body>
+</html>

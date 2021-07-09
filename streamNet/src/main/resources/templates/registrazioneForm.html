@@ -27,6 +27,12 @@
             <div th:if="${#fields.hasErrors('utente.cognome')}"  th:errors="${utente.cognome}"></div>
         </div>
         <div>
+      		<span>Tipologia di abbonamento:</span>
+    		<select th:field="${credenziali.abbonamento}">
+    			<option th:each="abbonamento : ${T(it.uniroma3.siw.streamNet.model.Abbonamento).values()}" th:value="${abbonamento}" th:text="${abbonamento}"></option>
+    		</select>
+  		</div>
+        <div>
             <div id="submit-button">
                 <button type="submit">Registra</button>
                 <a style="color: white;"href="/login">Ti sei già registrato? Accedi</a>

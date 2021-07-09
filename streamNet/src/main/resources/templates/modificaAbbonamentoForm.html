@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+	<nav th:replace="/fragments/components.html :: navbar"></nav>
+	<form th:action="@{/admin/modificaAbbonamentoUtente}" method="POST" th:object="${nuoveCredenziali}">
+		<div>
+			<span>Tipologia di abbonamento:</span>
+			<select th:field="${nuoveCredenziali.abbonamento}">
+				<option th:each="abbonamento : ${T(it.uniroma3.siw.streamNet.model.Abbonamento).values()}" 
+					th:value="${abbonamento}" th:text="${abbonamento}"></option>
+			</select>
+		</div>
+		<div>
+			<button type="submit">Invio</button>
+		</div>
+	</form>
+	<footer th:replace="/fragments/components.html :: footer"></footer>
+</body>
+</html>

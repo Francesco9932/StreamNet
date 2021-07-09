@@ -1,5 +1,6 @@
 package it.uniroma3.siw.streamNet.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,16 @@ public class CredenzialiService {
 	public Credenziali getCredenziali(Long id) {
 		Optional<Credenziali> optional = this.credenzialiRepository.findById(id);
 		return optional.orElse(null);
+	}
+	
+	@Transactional
+	public void rimuoviCredenziali(Credenziali credenziali) {
+		this.credenzialiRepository.delete(credenziali);
+	}
+	
+	@Transactional
+	public List<Credenziali> getAllCredenziali() {
+		return (List<Credenziali>) this.credenzialiRepository.findAll();
 	}
 	
 	@Transactional
