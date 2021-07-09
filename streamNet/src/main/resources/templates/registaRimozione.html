@@ -4,14 +4,12 @@
 <body>
     <div class="container-artisti">
     	<h1>Regista da rimuovere:</h1>
-    	<em>
-    		<ul>
-        		<li th:each="regista : ${registi}">
-            	<a th:href="@{'/admin/rimuoviRegista' + '/' + ${regista.id}}" 
-             	th:text="|${regista.nome} ${regista.cognome}|">Nome cognome</a>
-        		</li>
-    		</ul>
-    	</em>
-    </div>
+    	<ul>
+       		<li th:each="regista : ${registi}">
+           	<a th:href="@{'/admin/rimuoviRegista' + '/' + ${regista.id}}"
+           	th:text="${regista.nome}">Nome</a>
+       		</li>
+    	</ul>
+    	<footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

@@ -87,11 +87,11 @@ public class StreamNetService {
 	
 	@Transactional
 	public boolean registaAlreadyExist(Regista regista) {
-	List<Regista> listaRegista = this.registaRepository.findByNome(regista.getNome());
-	if(listaRegista.size() > 0)
-		return true;
-	else
-		return false;
+		List<Regista> listaRegista = this.registaRepository.findByNome(regista.getNome());
+		if(listaRegista.size() > 0)
+			return true;
+		else
+			return false;
 	}
 	
 	@Transactional
