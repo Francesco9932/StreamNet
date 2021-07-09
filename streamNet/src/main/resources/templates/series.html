@@ -4,7 +4,12 @@
 
 <body>
   <nav th:replace = "/fragments/components.html :: navbar"></nav>
-  <p>Lista serieTv</p>
+  <h1>Lista serie:</h1>
+  <ul>
+  	<li th:each="serie : ${series}">
+  		<a th:href="@{'/serie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>
+  	</li>
+  </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>
