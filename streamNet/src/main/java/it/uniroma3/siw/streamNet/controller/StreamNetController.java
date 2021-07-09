@@ -36,9 +36,9 @@ public class StreamNetController {
 		return "credenzialiModificaAbbonamento.html";
 	}
 	
-	@RequestMapping( value = "/getAllSerie", method = RequestMethod.GET)
+	@RequestMapping( value = "/series", method = RequestMethod.GET)
 	public String getAllSerie(Model model) {
-		model.addAttribute("serieTvs", this.streamNetService.getAllSerie());
-		return "serieTv.html";
+		model.addAttribute("series", this.streamNetService.getAllSerie());
+		return "series.html";
 	}
 }

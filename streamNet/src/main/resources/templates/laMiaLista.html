@@ -9,6 +9,9 @@
   	<li th:each="film : ${films}">
   		<p th:if="${film.nellaMiaLista}==true" th:text="${film.titolo}"></p>
   	</li>
+  	<li th:each="serie : ${series}">
+  		<p th:if="${serie.nellaMiaLista}==true" th:text="${serie.titolo}"></p>
+  	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>

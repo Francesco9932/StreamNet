@@ -7,7 +7,7 @@
   <h1>serie da modificare:</h1>
   <ul>
   	<li th:each="serie : ${series}">
-  		<a th:href="@{'/admin/modificaserie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>
+  		<a th:href="@{'/admin/modificaSerie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

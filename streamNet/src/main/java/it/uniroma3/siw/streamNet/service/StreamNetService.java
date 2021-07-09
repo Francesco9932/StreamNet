@@ -31,6 +31,11 @@ public class StreamNetService {
 		return (List<Film>) filmRepository.findAll();
 	}
 	
+	@Transactional
+	public List<SerieTv> getAllSerie(){
+		return (List<SerieTv>) serieRepository.findAll();
+	}
+	
 	@Transactional 
 	public Film getFilmPerId(Long id){
 		Optional<Film> opzionale = this.filmRepository.findById(id);
@@ -40,9 +45,13 @@ public class StreamNetService {
 			return null;
 	}
 	
-	@Transactional
-	public List<SerieTv> getAllSerie(){
-		return (List<SerieTv>) serieRepository.findAll();
+	@Transactional 
+	public SerieTv getSeriePerId(Long id){
+		Optional<SerieTv> opzionale = this.serieRepository.findById(id);
+		if(opzionale.isPresent())
+			return opzionale.get();
+		else
+			return null;
 	}
 	
 	@Transactional
@@ -83,8 +92,18 @@ public class StreamNetService {
 	}
 	
 	@Transactional
+	public void rimuoviSerie(SerieTv serie) {
+		this.serieRepository.delete(serie);
+	}
+	
+	@Transactional
 	public void rimuoviFilmPerId(Long id) {
 		this.filmRepository.deleteById(id);
+	}
+	
+	@Transactional
+	public void rimuoviSeriePerId(Long id) {
+		this.serieRepository.deleteById(id);
 	}
 	
 	@Transactional
