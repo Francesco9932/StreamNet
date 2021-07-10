@@ -1,0 +1,15 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+  <nav th:replace = "/fragments/components.html :: navbar"></nav>
+  <h1>Episodio da rimuovere:</h1>
+  <ul>
+  	<li th:each="episodio : ${episodi}">
+  		<a th:href="@{'/admin/rimuoviEpisodio' + '/' + ${episodio.id}}"></a>
+  	</li>
+  </ul>
+  <footer th:replace = "/fragments/components.html :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+	<nav th:replace="/fragments/components.html :: navbar"></nav>
+	<form th:action="@{/admin/episodio}" method="POST" th:object="${episodio}">
+		<div>
+			<div th:if="${#fields.hasGlobalErrors()}">
+  				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+			</div>
+			<div>
+      			<span >Durata:</span>
+      			<span><input type="text" th:field="*{durata}"></span>
+      			<span th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></span>
+  			</div>
+  			<div>
+      			<span>Descrizione:</span>
+      			<span><input type="text" th:field="*{descrizione}"></span>
+      			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+  			</div>
+  	
+  			<div id="submit-button">
+      			<span><button type="submit">Invio</button></span>
+  			</div>
+		</div>
+	</form>
+	<footer th:replace="/fragments/components.html :: footer"></footer>
+</body>
+</html>
