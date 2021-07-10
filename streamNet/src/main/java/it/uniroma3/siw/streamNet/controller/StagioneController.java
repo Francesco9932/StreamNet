@@ -30,13 +30,13 @@ public class StagioneController {
 	@RequestMapping(value = "/admin/stagioneDaRimuovere", method = RequestMethod.GET)
 	public String mostraStagioneDaRimuovere(Model model) {
 		model.addAttribute("stagioni",streamNetService.getAllStagione());
-		return "stagioneRimozione.html";
+		return "stagioniRimozione.html";
 	} 
 	
 	@RequestMapping(value = "/admin/stagioneDaModificare", method = RequestMethod.GET)
 	public String mostraStagioneDaModificare(Model model) {
 		model.addAttribute("stagioni",streamNetService.getAllStagione());
-		return "stagioneModifica.html";
+		return "stagioniModifica.html";
 	} 
 	
 	@RequestMapping(value =  "/admin/stagione", method = RequestMethod.POST)
