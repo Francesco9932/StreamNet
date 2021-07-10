@@ -10,9 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import it.uniroma3.siw.streamNet.model.Film;
 import it.uniroma3.siw.streamNet.model.Regista;
 import it.uniroma3.siw.streamNet.model.SerieTv;
+import it.uniroma3.siw.streamNet.model.Stagione;
 import it.uniroma3.siw.streamNet.repository.FilmRepository;
 import it.uniroma3.siw.streamNet.repository.RegistaRepository;
 import it.uniroma3.siw.streamNet.repository.SerieRepository;
+import it.uniroma3.siw.streamNet.repository.StagioneRepository;
 
 @Service
 public class StreamNetService {
@@ -25,6 +27,9 @@ public class StreamNetService {
 	
 	@Autowired
 	private RegistaRepository registaRepository;
+	
+	@Autowired
+	private StagioneRepository stagioneRepository;
 	
 	@Transactional
 	public List<Film> getAllFilm(){
@@ -39,6 +44,11 @@ public class StreamNetService {
 	@Transactional
 	public List<Regista> getAllRegista(){
 		return (List<Regista>) registaRepository.findAll();
+	}
+	
+	@Transactional
+	public List<Stagione> getAllStagione(){
+		return (List<Stagione>) stagioneRepository.findAll();
 	}
 	
 	@Transactional 
@@ -61,6 +71,14 @@ public class StreamNetService {
 	
 	public Regista getRegistaPerId(Long id){
 		Optional<Regista> opzionale = this.registaRepository.findById(id);
+		if(opzionale.isPresent())
+			return opzionale.get();
+		else
+			return null;
+	}
+	
+	public Stagione getStagionePerId(Long id){
+		Optional<Stagione> opzionale = this.stagioneRepository.findById(id);
 		if(opzionale.isPresent())
 			return opzionale.get();
 		else
@@ -94,6 +112,7 @@ public class StreamNetService {
 			return false;
 	}
 	
+	
 	@Transactional
 	public void rimuoviFilm(Film film) {
 		this.filmRepository.delete(film);
@@ -107,6 +126,11 @@ public class StreamNetService {
 	@Transactional
 	public void rimuoviRegista(Regista regista) {
 		this.registaRepository.delete(regista);
+	}
+	
+	@Transactional
+	public void rimuoviStagione(Stagione stagione) {
+		this.stagioneRepository.delete(stagione);
 	}
 	
 	@Transactional
@@ -125,6 +149,11 @@ public class StreamNetService {
 	}
 	
 	@Transactional
+	public void rimuoviStagionePerId(Long id) {
+		this.registaRepository.deleteById(id);
+	}
+	
+	@Transactional
 	public Film aggiungiFilm(Film film) {
 		return this.filmRepository.save(film);
 	}
@@ -137,6 +166,11 @@ public class StreamNetService {
 	@Transactional
 	public Regista aggiungiRegista(Regista regista) {
 		return this.registaRepository.save(regista);
+	}
+	
+	@Transactional
+	public Stagione aggiungiStagione(Stagione stagione) {
+		return this.stagioneRepository.save(stagione);
 	}
 	
 

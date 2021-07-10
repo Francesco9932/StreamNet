@@ -4,10 +4,10 @@
 
 <body>
   <nav th:replace = "/fragments/components.html :: navbar"></nav>
-  <h1>regista da modificare:</h1>
+  <h1>Stagione da rimuovere:</h1>
   <ul>
-  	<li th:each="regista : ${registi}">
-  		<a th:href="@{'/admin/modificaRegista' + '/' + ${regista.id}}"th:text="${artista.nome} ${artista.cognome}"></a>
+  	<li th:each="stagione : ${stagioni}">
+  		<a th:href="@{'/admin/rimuoviStagione' + '/' + ${stagione.id}}"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
