@@ -21,7 +21,7 @@
   			</div>
   			<div>
       			<span>Data di nascita:</span>
-      			<span><input type="text" th:field="*{dataDiNascita}"></span>
+      			<span><input type="date" th:field="*{dataDiNascita}"></span>
       			<span th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></span>
   			</div>
   			<div>
@@ -29,12 +29,7 @@
       			<span><input type="text" th:field="*{biografia}"></span>
       			<span th:if="${#fields.hasErrors('biografia')}" th:errors="*{biografia}"></span>
   			</div>
-  			<div th:if="${registi}!=null">
-      			<span>Regista:</span>
-    			<select th:field="*{registaSerie}">
-    				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
-    			</select>
-  			</div>
+  			
   			<div id="submit-button">
       			<span><button type="submit">Invio</button></span>
   			</div>

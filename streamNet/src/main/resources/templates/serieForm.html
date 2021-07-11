@@ -29,6 +29,11 @@
       			<span><input type="text" th:field="*{attori}"></span>
       			<span th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></span>
   			</div>
+  			<div>
+      			<span>Lingua:</span>
+      			<span><input type="text" th:field="*{lingua}"></span>
+      			<span th:if="${#fields.hasErrors('lingua')}" th:errors="*{lingua}"></span>
+  			</div>
   			<div th:if="${registi}!=null">
       			<span>Regista:</span>
     			<select th:field="*{registaSerie}">
