@@ -1,33 +1,63 @@
+:root{
+	--black:#141414;
+	--white:#fff;
+	--grey:#e5e5e5;
+}
+
 *{
 	margin: 0px;
 	padding: 0px;
 }
 
 body{
+	background-color: var(--black);
+	color: var(--white);
 	display:flex;
 	flex-direction: column;
 	justify-content: space-between;
-	width: 100%;
+	font-family: Arial, Helvetica, sans-serif;
+	width: 100vw;
 	height: 100vh;
 }
+
+
 
 /*navbar e footer*/
 header{
 	display: flex;
 	justify-content: space-between;
+	padding:20px;
 }
-nav{
-	width: 50%;
-	height: 50%;
+.streamnet-logo{
+	margin-right: 15px;
 }
-.navbar-ul{
-	display:flex;
-	justify-content: space-between;
+.main-nav{
+	display: flex;
+	align-items: center;
+	width: 80%;
+	height: 100%;
 }
-.navbar-ul li{
-	display:flex;
+.main-nav a{
+	text-decoration: none;
+	color: var(--white);
+	margin: 5px 11px 5px 11px;
+}
+.main-nav a:hover{
+	color: var(--grey);
+}
+.sub-nav{
+	display: flex;
+}
+.sub-nav a{
+	text-decoration: none;
+	color: var(--white);
+	margin: 5px;
+	font-size: 1.3rem;
 }
 
+.sub-nav a:hover{
+	color: var(--grey);
+}
 
 footer{
 	display: flex;
@@ -41,4 +71,26 @@ footer{
 }
 .footer-text div{
 	display: flex;
+}
+
+
+/*section*/
+section{
+	padding: 50px;
+	width: 100vw;
+	height: 100%;
+}
+.content-container{
+	display: flex;
+}
+.content-container a{
+	margin: 0px 5px 0px 5px;
+	transition: transform .2s;
+}
+.content-container a:hover{
+	margin: 0px 5px 0px 5px;
+	transform: scale(1.3);
+}
+.content-container > a > img{
+	max-width: 100%;
 }

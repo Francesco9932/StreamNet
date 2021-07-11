@@ -9,22 +9,23 @@
 </head>
 
 <body>
-	<header th:fragment = "navbar">
-		<h1>STREAMNET</h1>
-		<nav>
-    		<ul class="navbar-ul">
-      			<li><a class="active" th:href="@{/default}">Home</a></li>
-      			<li><a th:href="@{/series}">Serie TV</a></li>
-      			<li><a th:href="@{/films}">Film</a></li>
-      			<li><a th:href="@{/laMiaLista}">La mia lista</a></li>
-   			</ul>
+	<!--HEADER-->
+	<header th:fragment = "header">
+		<div class="streamnet-logo">
+			<h1>STREAMNET</h1>
+		</div>
+		<nav class="main-nav">
+			<a class="active" th:href="@{/default}">Home</a>
+			<a th:href="@{/}">Serie TV</a>
+			<a th:href="@{/films}">Film</a>
+			<a th:href="@{/laMiaLista}">La mia lista</a>
   		</nav>
-  		<div>
-  			<a th:href= "@{/register}"><i class="fas fa-user-circle"></i></a>
+  		<nav class="sub-nav">
   			<a th:href= "@{/}"><i class="fas fa-search"></i></a>
-  		</div>
+  			<a th:href= "@{/register}"><i class="fas fa-user-circle"></i></a>
+  		</nav>
 	</header>
-  
+  	<!--FINE HEADER-->
 
   <footer th:fragment = "footer">
         <div class="footer-text">
@@ -41,16 +42,16 @@
         </div>
         <ul class="footer-social">
             <li>
-                <a href="#"><i class="fab fa-twitter-square" style="color:white";></i></a>
+                <a href="#"><i class="fab fa-twitter-square i-social"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fab fa-google-plus-square" style="color:white";></i></a>
+                <a href="#"><i class="fab fa-google-plus-square i-social"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fab fa-facebook-square" style="color:white";></i></a>
+                <a href="#"><i class="fab fa-facebook-square i-social"></i></a>
             </li>
             <li>
-                <a href="#"><i class="fab fa-instagram-square" style="color:white";></i></a>
+                <a href="#"><i class="fab fa-instagram-square i-social"></i></a>
             </li>
         </ul>
 </footer>
