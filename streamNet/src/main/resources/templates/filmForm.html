@@ -66,6 +66,12 @@
             	<input type="text" placeholder="durata" th:field="*{durata}"/>
             	<div th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></div>
         	</div>
+        	
+        	<div>
+            	<p>Immagine:</p>
+            	<input type="text" placeholder="immagine" th:field="*{immagine}"/>
+            	<div th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></div>
+        	</div>
 			
 			<div>
                 <button type="submit">Invio</button>
