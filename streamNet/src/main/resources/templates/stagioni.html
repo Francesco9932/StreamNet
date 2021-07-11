@@ -4,10 +4,10 @@
 
 <body>
   <header th:replace="/fragments/components.html :: header"></header>
-  <h1>Lista Stagione:</h1>
+  <h1>Lista Stagioni:</h1>
   <ul>
   	<li th:each="stagione : ${stagioni}">
-  		<a th:href="@{'/stagione' + '/' + ${stagione.id}}" th:text="${stagione.descizione}"></a>
+  		  		<a th:href="@{'/stagioni' + '/' + ${stagione.id}}"th:text="${stagione.numero}"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

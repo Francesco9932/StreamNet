@@ -7,7 +7,7 @@
   <h1>Lista Episodi:</h1>
   <ul>
   	<li th:each="episodio : ${episodi}">
-  		<a th:href="@{'/episodio' + '/' + ${episodio.id}}"></a>
+  		<a th:href="@{'/episodio' + '/' + ${episodio.id}}"th:text="${episodio.numero}"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

@@ -7,7 +7,6 @@ import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.streamNet.model.Episodio;
-import it.uniroma3.siw.streamNet.model.Stagione;
 import it.uniroma3.siw.streamNet.service.StreamNetService;
 
 @Component
@@ -28,8 +27,8 @@ public class EpisodioValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "durata", "required");
 		
 		if (!errors.hasErrors()) {
-			if (this.streamNetService.stagioneAlreadyExist((Stagione)o)) {
-				errors.reject("duplicatoSerie");
+			if (this.streamNetService.episodioAlreadyExist((Episodio)o)) {
+				errors.reject("duplicatoEpisodio");
 			}
 		
 		}

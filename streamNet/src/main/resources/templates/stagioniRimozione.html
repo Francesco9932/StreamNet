@@ -6,7 +6,7 @@
   <h1>Stagione da rimuovere:</h1>
   <ul>
   	<li th:each="stagione : ${stagioni}">
-  		<a th:href="@{'/admin/rimuoviStagione' + '/' + ${stagione.id}}" th:text="${stagione.descrizione}"></a>
+  		<a th:href="@{'/admin/rimuoviStagione' + '/' + ${stagione.id}}" th:text="${stagione.numero}"></a>
   		<h5 th:text="${stagione.descrizione}"></h5>
   	</li>
   </ul>
