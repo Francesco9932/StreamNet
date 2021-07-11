@@ -7,7 +7,7 @@
   <h1>Lista Stagione:</h1>
   <ul>
   	<li th:each="stagione : ${stagioni}">
-  		<a th:href="@{'/stagione' + '/' + ${stagione.id}}"></a>
+  		<a th:href="@{'/stagione' + '/' + ${stagione.id}}" th:text="${stagione.descizione}"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

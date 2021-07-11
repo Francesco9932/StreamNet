@@ -7,7 +7,7 @@
   <h1>Stagioni da modificare:</h1>
   <ul>
   	<li th:each="stagione : ${stagioni}">
-  		<a th:href="@{'/admin/modificaStagione' + '/' + ${stagione.id}}"></a>
+  		<a th:href="@{'/admin/modificaStagione' + '/' + ${stagione.id}}" th:text="${stagione.descrizione}"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
