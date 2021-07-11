@@ -3,7 +3,7 @@
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
 
 <body>
-	<nav th:replace="/fragments/components.html :: navbar"></nav>
+	<header th:replace="/fragments/components.html :: header"></header>
 	<form th:action="@{/admin/modificaAbbonamentoUtente}" method="POST" th:object="${nuoveCredenziali}">
 		<div>
 			<span>Tipologia di abbonamento:</span>

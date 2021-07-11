@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 public class Credenziali {
 	
 	public final static String RUOLO_ADMIN = "ADMIN";
-	public final static String RUOLO_UTENTE = "RUOLO";
+	public final static String RUOLO_UTENTE = "UTENTE";
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

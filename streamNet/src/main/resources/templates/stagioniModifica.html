@@ -3,7 +3,7 @@
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
 
 <body>
-  <nav th:replace = "/fragments/components.html :: navbar"></nav>
+ <header th:replace="/fragments/components.html :: header"></header>
   <h1>Stagioni da modificare:</h1>
   <ul>
   	<li th:each="stagione : ${stagioni}">
