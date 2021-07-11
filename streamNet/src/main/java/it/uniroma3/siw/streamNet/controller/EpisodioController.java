@@ -50,6 +50,7 @@ public class EpisodioController {
 	public String getEpisodioDaModificare(@PathVariable("id") Long id,Model model) {
 		Episodio episodio = this.streamNetService.getEpisodioPerId(id);
 		Episodio episodioModificato = new Episodio();
+		episodioModificato.setNumero(episodio.getNumero());
 		episodioModificato.setDescrizione(episodio.getDescrizione());
 		episodioModificato.setDurata(episodio.getDurata());
 		this.streamNetService.rimuoviEpisodio(episodio);
