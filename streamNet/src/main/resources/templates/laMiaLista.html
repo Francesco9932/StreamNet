@@ -4,15 +4,14 @@
 
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
-  <h1>La mia lista:</h1>
-  <ul>
-  	<li th:each="film : ${films}">
-  		<p th:if="${film.nellaMiaLista}==true" th:text="${film.titolo}"></p>
-  	</li>
-  	<li th:each="serie : ${series}">
-  		<p th:if="${serie.nellaMiaLista}==true" th:text="${serie.titolo}"></p>
-  	</li>
-  </ul>
+  <section>
+  	<div class="content-container">
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.nellaMiaLista} == true"><img th:src="${film.immagine}"></a>
+  		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
+  		th:object="${serie}" th:if="${serie.nellaMiaLista} == true"><img th:src="${serie.immagine}"></a>
+  	</div>
+  </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

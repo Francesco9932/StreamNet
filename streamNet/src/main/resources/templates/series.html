@@ -3,13 +3,26 @@
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
 
 <body>
-  <header th:replace="/fragments/components.html :: header"></header>
-  <h1>Lista serie:</h1>
-  <ul>
-  	<li th:each="serie : ${series}">
-  		<a th:href="@{'/serie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>
-  	</li>
-  </ul>
+  <header th:replace = "/fragments/components.html :: header"></header>
+  <section>
+  	<h1 class="category-title">Serie tv Fantasy</h1>
+  	<div class="content-container">
+  		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
+  		th:object="${serie}" th:if="${serie.genere} == 'Fantasy'"><img th:src="${serie.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Serie tv Horror</h1>
+  	<div class="content-container">
+  		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
+  		th:object="${serie}" th:if="${serie.genere} == 'Horror'"><img th:src="${serie.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Serie tv Commedie</h1>
+  	<div class="content-container">
+  		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
+  		th:object="${serie}" th:if="${serie.genere} == 'Commedie'"><img th:src="${serie.immagine}"></a>
+  	</div>
+  </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

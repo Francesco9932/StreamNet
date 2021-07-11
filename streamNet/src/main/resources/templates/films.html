@@ -4,12 +4,25 @@
 
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
-  <h1>Lista Film:</h1>
-  <ul>
-  	<li th:each="film : ${films}">
-  		<a th:href="@{'/film' + '/' + ${film.id}}" th:text="${film.titolo}"></a>
-  	</li>
-  </ul>
+  <section>
+  	<h1 class="category-title">Film Fantasy</h1>
+  	<div class="content-container">
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Fantasy'"><img th:src="${film.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Film Horror</h1>
+  	<div class="content-container">
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Horror'"><img th:src="${film.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Film Commedie</h1>
+  	<div class="content-container">
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Commedia'"><img th:src="${film.immagine}"></a>
+  	</div>
+  </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

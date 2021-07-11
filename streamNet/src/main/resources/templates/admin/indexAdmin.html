@@ -5,16 +5,32 @@
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
   <section>
-  	<p>INDEX ADMIN</p>
-  	<h1>Film crime</h1>
+  	<h1 class="category-title">Azione e avventura</h1>
   	<div class="content-container">
-  		<a th:each="film : ${films}"><img th:src="${film.immagine}"><img></a>
+  		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
+  		th:object="${serie}" th:if="${serie.genere} == 'Azione e avventura'"><img th:src="${serie.immagine}"></a>
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Azione e avventura'"><img th:src="${film.immagine}"></a>
   	</div>
   	
-  	<h1>Serie tv</h1>
+  	<h1 class="category-title">Film Crime</h1>
+  	<div class="content-container">
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Crime'"><img th:src="${film.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Film Thriller</h1>
+  	<div class="content-container">
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Thriller'"><img th:src="${film.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Serie tv</h1>
   	<div class="content-container">
   		<a th:each="serie : ${series}"><img th:src="${serie.immagine}"><img></a>
   	</div>
+  	
+  	<h1>OPERAZIONI ADMIN</h1>
   	<ul>
   		<h3>Operazioni su film:</h3>
   		<li><a th:href="@{/admin/aggiungiFilm}">Aggiungi Film</a></li>
@@ -40,6 +56,6 @@
   		<li><a th:href="@{/admin/utentiModificaAbbonamento}">Modifica abbonamento di un utente</a></li>
   	</ul>
   </section>
-  <footer th:replace = "/fragments/components.html :: footer"></footer>
+ <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

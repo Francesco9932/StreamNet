@@ -1,70 +1,78 @@
 <!DOCTYPE html>
-<html>
-<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
-
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"> </head>
 <body>
-	<header th:replace="/fragments/components.html :: header"></header>
+<header th:replace = "/fragments/components.html :: header"></header>
+<section id="section-form">
+<div class="container-form-entity">
+	<h1>Form film</h1>
 	<form th:action="@{/admin/film}" method="POST" th:object="${film}">
-		<div>
-			<div th:if="${#fields.hasGlobalErrors()}">
-  				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+			<div>
+				<div th:if="${#fields.hasGlobalErrors()}">
+  					<p style="color: white; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+				</div>
 			</div>
 			<div>
-      			<span >Titolo:</span>
-      			<span><input type="text" th:field="*{titolo}"></span>
-      			<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
-  			</div>
-  			<div>
-      			<span>Anno di uscita:</span>
-      			<span><input type="text" th:field="*{annoDiUscita}"></span>
-      			<span th:if="${#fields.hasErrors('annoDiUscita')}" th:errors="*{annoDiUscita}"></span>
-  			</div>
-  			<div>
-      			<span>Descrizione:</span>
-      			<span><input type="text" th:field="*{descrizione}"></span>
-      			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
-  			</div>
-  			<div>
-      			<span>Attori:</span>
-      			<span><input type="text" th:field="*{attori}"></span>
-      			<span th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></span>
-  			</div>
-  			<div th:if="${registi}!=null">
-      			<span>Regista:</span>
+				<p>Titolo:</p>
+            	<input type="text" placeholder="titolo" th:field="*{titolo}"/>
+            	<div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></div>
+			</div>	
+			
+			<div>
+				<p>Anno di uscita:</p>
+            	<input type="text" placeholder="anno di uscita" th:field="*{annoDiUscita}"/>
+            	<div th:if="${#fields.hasErrors('annoDiUscita')}" th:errors="*{annoDiUscita}"></div>
+			</div>
+			
+			<div>
+            	<p>Descrizione:</p>
+            	<input type="text" placeholder="descrizione" th:field="*{descrizione}"/>
+            	<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+        	</div>
+        	
+        	<div>
+            	<p>Attori:</p>
+            	<input type="text" placeholder="attori" th:field="*{attori}"/>
+            	<div th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></div>
+        	</div>
+        	
+        	<div th:if="${registi}!=null">
+      			<p>Regista:</p>
     			<select th:field="*{registaFilm}">
     				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
     			</select>
   			</div>
+  			
   			<div>
-      			<span>Video:</span>
-      			<span><input type="text" th:field="*{video}"></span>
-      			<span th:if="${#fields.hasErrors('video')}" th:errors="*{video}"></span>
-  			</div>
-  			<div>
-      			<span>Immagine Box:</span>
-      			<span><input type="text" th:field="*{immagine}"></span>
-      			<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
-  			</div>
-  			<div>
-      			<span>Genere:</span>
-      			<span><input type="text" th:field="*{genere}"></span>
-      			<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
-  			</div>
-  			<div>
-      			<span>Immagine poster:</span>
-      			<span><input type="text" th:field="*{posterImmagine}"></span>
-      			<span th:if="${#fields.hasErrors('posterImmagine')}" th:errors="*{posterImmagine}"></span>
-  			</div>
-  			<div>
-      			<span>Durata film:</span>
-      			<span><input type="text" th:field="*{durata}"></span>
-      			<span th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></span>
-  			</div>
-  			<div id="submit-button">
-      			<span><button type="submit">Invio</button></span>
-  			</div>
-		</div>
+            	<p>Video:</p>
+            	<input type="text" placeholder="video" th:field="*{video}"/>
+            	<div th:if="${#fields.hasErrors('video')}" th:errors="*{video}"></div>
+        	</div>
+        	
+        	<div>
+            	<p>Genere:</p>
+            	<input type="text" placeholder="genere" th:field="*{genere}"/>
+            	<div th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></div>
+        	</div>
+        	
+        	<div>
+            	<p>Poster immagine URL:</p>
+            	<input type="text" placeholder="poster immagine URL" th:field="*{posterImmagine}"/>
+            	<div th:if="${#fields.hasErrors('posterImmagine')}" th:errors="*{posterImmagine}"></div>
+        	</div>
+        	
+        	<div>
+            	<p>Durata:</p>
+            	<input type="text" placeholder="durata" th:field="*{durata}"/>
+            	<div th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></div>
+        	</div>
+			
+			<div>
+                <button type="submit">Invio</button>
+        	</div>
 	</form>
-	<footer th:replace="/fragments/components.html :: footer"></footer>
+</div>
+</section>
+<footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

@@ -50,6 +50,11 @@
       			<span><input type="text" th:field="*{video}"></span>
       			<span th:if="${#fields.hasErrors('video')}" th:errors="*{video}"></span>
   			</div>
+  			<div>
+      			<span>Genere:</span>
+      			<span><input type="text" th:field="*{genere}"></span>
+      			<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
+  			</div>
   			<div id="submit-button">
       			<span><button type="submit">Invio</button></span>
   			</div>

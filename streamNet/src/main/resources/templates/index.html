@@ -5,15 +5,29 @@
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
   <section>
-  	<h1>Film</h1>
+  	<h1 class="category-title">Azione e avventura</h1>
   	<div class="content-container">
-  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}"><img th:src="${film.immagine}"></a>
+  		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
+  		th:object="${serie}" th:if="${serie.genere} == 'Azione e avventura'"><img th:src="${serie.immagine}"></a>
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Azione e avventura'"><img th:src="${film.immagine}"></a>
   	</div>
   	
-  	
-  	<h1>Serie tv</h1>
+  	<h1 class="category-title">Film Crime</h1>
   	<div class="content-container">
-  		<a th:each="serie : ${series}"><img th:src="${serie.immagine}"></a>
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Crime'"><img th:src="${film.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Film Thriller</h1>
+  	<div class="content-container">
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
+  		th:object="${film}" th:if="${film.genere} == 'Thriller'"><img th:src="${film.immagine}"></a>
+  	</div>
+  	
+  	<h1 class="category-title">Serie tv</h1>
+  	<div class="content-container">
+  		<a th:each="serie : ${series}"><img th:src="${serie.immagine}"><img></a>
   	</div>
   </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
