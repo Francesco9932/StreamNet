@@ -5,9 +5,15 @@
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
   <section>
-  	<h1>Film crime</h1>
+  	<h1>Film</h1>
   	<div class="content-container">
-  		<a th:each="film : ${films}"><img th:src="${film.immagine}"><img></a>
+  		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}"><img th:src="${film.immagine}"></a>
+  	</div>
+  	
+  	
+  	<h1>Serie tv</h1>
+  	<div class="content-container">
+  		<a th:each="serie : ${series}"><img th:src="${serie.immagine}"></a>
   	</div>
   </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

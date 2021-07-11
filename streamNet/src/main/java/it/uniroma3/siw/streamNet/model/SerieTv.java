@@ -38,6 +38,12 @@ public class SerieTv {
 	
 	@Column
 	private boolean nellaMiaLista;
+	
+	@Column
+	private String video;
+	
+	@Column
+	private String immagine;
 
 	@ManyToOne()
 	private Regista registaSerie;
@@ -127,5 +133,21 @@ public class SerieTv {
 
 	public void setNellaMiaLista(boolean nellaMiaLista) {
 		this.nellaMiaLista = nellaMiaLista;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
 	}
 }

@@ -96,5 +96,5 @@ public class FilmController {
 		film.setNellaMiaLista(false);
 		this.streamNetService.aggiungiFilm(film);
 		return "redirect:/film/{id}";
-	}
+	}	
 }

@@ -63,8 +63,10 @@ public class AuthenticationController {
     	Credenziali credenziali = credenzialiService.getCredenziali(userDetails.getUsername());
     	if (credenziali.getRuolo().equals(Credenziali.RUOLO_ADMIN)) {
     		model.addAttribute("films", this.streamNetService.getAllFilm());
+    		model.addAttribute("series", this.streamNetService.getAllSerie());
             return "admin/indexAdmin.html";
         }
+    	model.addAttribute("series", this.streamNetService.getAllSerie());
     	model.addAttribute("films", this.streamNetService.getAllFilm());
         return "index.html";
     }

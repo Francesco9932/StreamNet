@@ -5,18 +5,41 @@
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
   
-  <div>
-  	<video width="320" height="240" controls>
- 	 <source th:src="'${film.video}'" type="video/mp4">
-	</video>
-  	
-  	<form th:if="${film.nellaMiaLista}==false" th:action="@{'/aggiungiFilmAllaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
-  		<button type="submit">Aggiungi a La mia lista</button>
- 	</form>
-  	<form th:unless="${film.nellaMiaLista}==false" th:action="@{'/rimuoviFilmDallaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
-  		<button type="submit">Rimuovi da La mia lista</button>
-  	</form>
-  </div>
+  <section id="section-video">
+  	<div class="main-video">
+  		<video width="720" height="480" poster="${film.posterImmagine}" controls>
+ 	 		<source th:src="'${film.video}'" type="video/mp4">
+		</video>
+  	</div>
+  	<div class="sub-video">
+  		<div class="col">
+  			<div class="riga">
+  				<div><p th:text="'Titolo: ' + ${film.titolo}"></p></div>
+  				<div><p th:text="'Durata: ' + ${film.durata} + 'min'"></p></div>
+  			</div>
+  			<div class="riga">
+  				<div><p th:text="'Descrizione: ' + ${film.descrizione}"></p></div>
+  			</div>
+  		</div>
+  		
+  		<div class="col"> 
+  			<div>Attori:<p th:text="${film.attori}"></p></div>
+  			<div>Genere:<p th:text="${film.genere}"></p></div>
+  			<div>Anno di uscita:<p th:text="${film.annoDiUscita}"></p></div>
+  			<div th:if="${film.registaFilm}!=null">Regista:<p th:text="|${film.registaFilm.nome}${film.registaFilm.cognome}|"></p></div>
+  			<div>Lingua:<p th:text="${film.lingua}"></p></div>
+  		</div>
+  		
+  		
+  		
+  		<form th:if="${film.nellaMiaLista}==false" th:action="@{'/aggiungiFilmAllaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
+  			<button type="submit">Aggiungi a La mia lista</button>
+ 	 	</form>
+  		<form th:unless="${film.nellaMiaLista}==false" th:action="@{'/rimuoviFilmDallaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
+  			<button type="submit">Rimuovi da La mia lista</button>
+  		</form>
+  	</div>
+  </section>
   
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>

@@ -19,6 +19,9 @@ public class Film {
 
 	@Column
 	private String genere;
+	
+	@Column
+	private String durata;
 
 	@Column
 	private String descrizione;
@@ -40,6 +43,9 @@ public class Film {
 	
 	@Column
 	private String immagine;
+	
+	@Column
+	private String posterImmagine;
 
 	@ManyToOne()
 	private Regista registaFilm;
@@ -134,5 +140,21 @@ public class Film {
 
 	public void setImmagine(String immagine) {
 		this.immagine = immagine;
+	}
+
+	public String getPosterImmagine() {
+		return posterImmagine;
+	}
+
+	public void setPosterImmagine(String posterImmagine) {
+		this.posterImmagine = posterImmagine;
+	}
+
+	public String getDurata() {
+		return durata;
+	}
+
+	public void setDurata(String durata) {
+		this.durata = durata;
 	}
 }

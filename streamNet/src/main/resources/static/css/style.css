@@ -146,3 +146,37 @@ section{
 	align-items: center;
 	padding:0px;
 }
+
+/*film/serieTv page*/
+#section-video {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.sub-video{
+	display: flex;
+	width: 50%;
+	height: 50%;
+}
+.sub-video div{
+	display: flex;
+}
+.col{
+	display: flex;
+	flex-direction: column;
+	margin:15px;
+}
+.col div{
+	margin:5px;
+}
+.riga{
+	display: flex;
+}
+.riga div{
+	margin:5px;
+}
+.riga > div > p{
+	font-size: 20px;
+	font-weight: bold;
+}

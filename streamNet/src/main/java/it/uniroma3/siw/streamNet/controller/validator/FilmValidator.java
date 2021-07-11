@@ -30,6 +30,9 @@ public class FilmValidator implements Validator{
 		//ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lingua", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "video", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "immagine", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "genere", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "posterImmagine", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "durata", "required");
 
 		if (!errors.hasErrors()) {
 			if (this.streamNetService.filmAlreadyExist((Film)o)) {
