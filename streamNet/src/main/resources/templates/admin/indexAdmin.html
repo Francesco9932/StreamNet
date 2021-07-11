@@ -4,31 +4,37 @@
 
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
-  <p>INDEX ADMIN</p>
-  <ul>
-  	<h3>Operazioni su film:</h3>
-  	<li><a th:href="@{/admin/aggiungiFilm}">Aggiungi Film</a></li>
-  	<li><a th:href="@{/admin/filmDaModificare}">Modifica Film</a></li>
-  	<li><a th:href="@{/admin/filmDaRimuovere}">Rimuovi Film</a></li>
-  	<h3>Operazioni su serie tv:</h3>
-  	<li><a th:href="@{/admin/aggiungiSerie}">Aggiungi Serie</a></li>
-  	<li><a th:href="@{/admin/serieDaModificare}">Modifica Serie</a></li>
-  	<li><a th:href="@{/admin/serieDaRimuovere}">Rimuovi Serie</a></li>
-  	<h3>Operazioni su regista:</h3>
-  	<li><a th:href="@{/admin/aggiungiRegista}">Aggiungi Regista</a></li>
-  	<li><a th:href="@{/admin/registaDaModificare}">Modifica Regista</a></li>
-  	<li><a th:href="@{/admin/registaDaRimuovere}">Rimuovi Regista</a></li>
-  	<h3>Operazioni su stagione:</h3>
-  	<li><a th:href="@{/admin/aggiungiStagione}">Aggiungi Stagione</a></li>
-  	<li><a th:href="@{/admin/stagioneDaModificare}">Modifica Stagione</a></li>
-  	<li><a th:href="@{/admin/stagioneDaRimuovere}">Rimuovi Stagione</a></li>
-  	<h3>Operazioni su episodio:</h3>
-  	<li><a th:href="@{/admin/aggiungiEpisodio}">Aggiungi Episodio</a></li>
-  	<li><a th:href="@{/admin/episodioDaModificare}">Modifica Episodio</a></li>
-  	<li><a th:href="@{/admin/episodioDaRimuovere}">Rimuovi Episodio</a></li>
-  	<h3>Operazioni sugli abbonamenti:</h3>
-  	<li><a th:href="@{/admin/utentiModificaAbbonamento}">Modifica abbonamento di un utente</a></li>
-  </ul>
+  <section>
+  	<p>INDEX ADMIN</p>
+  	<h1>Film crime</h1>
+  	<div class="content-container">
+  		<a th:each="film : ${films}"><img th:src="${film.immagine}"><img></a>
+  	</div>
+  	<ul>
+  		<h3>Operazioni su film:</h3>
+  		<li><a th:href="@{/admin/aggiungiFilm}">Aggiungi Film</a></li>
+  		<li><a th:href="@{/admin/filmDaModificare}">Modifica Film</a></li>
+  		<li><a th:href="@{/admin/filmDaRimuovere}">Rimuovi Film</a></li>
+  		<h3>Operazioni su serie tv:</h3>
+  		<li><a th:href="@{/admin/aggiungiSerie}">Aggiungi Serie</a></li>
+  		<li><a th:href="@{/admin/serieDaModificare}">Modifica Serie</a></li>
+  		<li><a th:href="@{/admin/serieDaRimuovere}">Rimuovi Serie</a></li>
+  		<h3>Operazioni su regista:</h3>
+  		<li><a th:href="@{/admin/aggiungiRegista}">Aggiungi Regista</a></li>
+  		<li><a th:href="@{/admin/registaDaModificare}">Modifica Regista</a></li>
+  		<li><a th:href="@{/admin/registaDaRimuovere}">Rimuovi Regista</a></li>
+  		<h3>Operazioni su stagione:</h3>
+  		<li><a th:href="@{/admin/aggiungiStagione}">Aggiungi Stagione</a></li>
+  		<li><a th:href="@{/admin/stagioneDaModificare}">Modifica Stagione</a></li>
+  		<li><a th:href="@{/admin/stagioneDaRimuovere}">Rimuovi Stagione</a></li>
+  		<h3>Operazioni su episodio:</h3>
+  		<li><a th:href="@{/admin/aggiungiEpisodio}">Aggiungi Episodio</a></li>
+  		<li><a th:href="@{/admin/episodioDaModificare}">Modifica Episodio</a></li>
+  		<li><a th:href="@{/admin/episodioDaRimuovere}">Rimuovi Episodio</a></li>
+  		<h3>Operazioni sugli abbonamenti:</h3>
+  		<li><a th:href="@{/admin/utentiModificaAbbonamento}">Modifica abbonamento di un utente</a></li>
+  	</ul>
+  </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

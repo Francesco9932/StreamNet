@@ -37,6 +37,9 @@ public class Film {
 	
 	@Column
 	private String video;
+	
+	@Column
+	private String immagine;
 
 	@ManyToOne()
 	private Regista registaFilm;
@@ -123,5 +126,13 @@ public class Film {
 
 	public void setVideo(String video) {
 		this.video = video;
+	}
+
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
 	}
 }

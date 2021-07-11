@@ -20,9 +20,13 @@ import it.uniroma3.siw.streamNet.controller.validator.UtenteValidator;
 import it.uniroma3.siw.streamNet.model.Credenziali;
 import it.uniroma3.siw.streamNet.model.Utente;
 import it.uniroma3.siw.streamNet.service.CredenzialiService;
+import it.uniroma3.siw.streamNet.service.StreamNetService;
 
 @Controller
 public class AuthenticationController {
+	@Autowired
+	private StreamNetService streamNetService;
+	
 	@Autowired
 	private CredenzialiService credenzialiService;
 	
@@ -58,8 +62,10 @@ public class AuthenticationController {
     	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	Credenziali credenziali = credenzialiService.getCredenziali(userDetails.getUsername());
     	if (credenziali.getRuolo().equals(Credenziali.RUOLO_ADMIN)) {
+    		model.addAttribute("films", this.streamNetService.getAllFilm());
             return "admin/indexAdmin.html";
         }
+    	model.addAttribute("films", this.streamNetService.getAllFilm());
         return "index.html";
     }
 	
