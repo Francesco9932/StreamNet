@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"> </head>
-<body>
+<body id="body-form">
+<section id="section-form">
 <div class="container-form">
-	<h4>Login</h4>
+	<h1>Login</h1>
 	<form th:action="@{/login}" method="POST">		
-		<div class="flex-form">
 			<div>
-				<span>Username:</span>
-				<span><input name="username" type="text" required /></span>
+				<p>Username:</p>
+				<input name="username" type="text" placeholder="Username" required/>
 			</div>	
+			
 			<div>
-				<span>Password:</span>
-				<span><input name="password" type="password" required /></span>
+				<p>Password:</p>
+				<input name="password" type="password" placeholder="Password" required />
 			</div>
 			
-			<div id="submit-button">
-				<span><button type="submit">Invio</button></span>
+			<div>
+				<button type="submit">Invio</button>
 			</div>
+			
+			<div>
+				<a th:href="@{/register}">Prima volta su Streamnet?Registrati.</a>
+			</div>
+			
 	</form>
 </div>
+</section>
 </body>
 </html>

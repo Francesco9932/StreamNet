@@ -94,3 +94,55 @@ section{
 .content-container > a > img{
 	max-width: 100%;
 }
+
+/*form di login*/
+.container-form{
+	width: 320px;
+	height: 420px;
+	background-color: var(--black);
+	color: var(--white);
+	box-sizing: border-box;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.container-form > form > div > input[type="text"],input[type="password"]{
+	border: none;
+	background: transparent;
+	color:var(--white);
+	width: 100%;
+}
+.container-form > form > div{
+	margin:7px 0px 7px 0px;
+}
+.container-form > form > div > a{
+	text-decoration: none;
+	color:var(--grey);
+	font-size: 15px;
+}
+.container-form > h1{
+	text-align: center;
+	font-size: 22px;
+	padding: 0px 0px 20px 0px;
+}
+.container-form > form > div > button[type="submit"]{
+	border: none;
+	outline: none;
+	height: 40px;
+	background-color: red;
+	color: var(--white);
+	font-size: 18px;
+	border-radius: 20px;
+	width: 100%;
+}
+#body-form{
+	background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/b8e09d9c-d1e7-4800-afd9-810e41ace684/d7cebece-a1a3-4e34-9039-bb2124f3fdb9/IT-it-20210607-popsignuptwoweeks-perspective_alpha_website_large.jpg");
+}
+#section-form{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding:0px;
+}

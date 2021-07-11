@@ -1,47 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"> </head>
-<body>
+<body id="body-form">
+<section id="section-form">
 <div class="container-form">
-	<h1>Registrazione </h1>
+	<h1>Registrazione</h1>
 	<form th:action="@{/register}" method = "POST">
-	<div class="flex-form">
-        <div>
-            <div>Username</div>
-            <div><input type="text" placeholder="username" required th:field="${credenziali.username}"/></div>
-            <div th:if="${#fields.hasErrors('credenziali.username')}" th:errors="${credenziali.username}"></div>
-        </div>
-        <div>
-            <div>Password</div>
-            <div><input type="password" placeholder="password" required th:field="${credenziali.password}"/></div>
-            <div th:if="${#fields.hasErrors('credenziali.password')}" th:errors="${credenziali.password}"></div>
-        </div>
-        <div>
-            <div>Nome</div>
-            <div><input type="text" placeholder="nome" required th:field="${utente.nome}"/></div>
-            <div th:if="${#fields.hasErrors('utente.nome')}" th:errors="${utente.nome}"></div>
-        </div>
-        <div>
-            <div>Cognome</div>
-            <div><input type="text" placeholder="cognome" required th:field="${utente.cognome}"/></div>
-            <div th:if="${#fields.hasErrors('utente.cognome')}"  th:errors="${utente.cognome}"></div>
-        </div>
-        <div>
-      		<span>Tipologia di abbonamento:</span>
-    		<select th:field="${credenziali.abbonamento}">
-    			<option th:each="abbonamento : ${T(it.uniroma3.siw.streamNet.model.Abbonamento).values()}" th:value="${abbonamento}" th:text="${abbonamento}"></option>
-    		</select>
-  		</div>
-        <div>
-            <div id="submit-button">
+			<div>
+				<p>Username:</p>
+            	<input type="text" placeholder="username" required th:field="${credenziali.username}"/>
+            	<div th:if="${#fields.hasErrors('credenziali.username')}" th:errors="${credenziali.username}"></div>
+			</div>	
+			
+			<div>
+				<p>Password:</p>
+            	<input type="password" placeholder="password" required th:field="${credenziali.password}"/>
+            	<div th:if="${#fields.hasErrors('credenziali.password')}" th:errors="${credenziali.password}"></div>
+			</div>
+			
+			<div>
+            	<p>Nome:</p>
+            	<input type="text" placeholder="nome" required th:field="${utente.nome}"/>
+            	<div th:if="${#fields.hasErrors('utente.nome')}" th:errors="${utente.nome}"></div>
+        	</div>
+        	
+        	<div>
+            	<p>Cognome:</p>
+           		<input type="text" placeholder="cognome" required th:field="${utente.cognome}"/>
+            	<div th:if="${#fields.hasErrors('utente.cognome')}"  th:errors="${utente.cognome}"></div>
+        	</div>
+        	
+        	<div>
+      			<p>Tipologia di abbonamento:</p>
+    			<select th:field="${credenziali.abbonamento}">
+    				<option th:each="abbonamento : ${T(it.uniroma3.siw.streamNet.model.Abbonamento).values()}" th:value="${abbonamento}" th:text="${abbonamento}"></option>
+    			</select>
+  			</div>
+			
+			<div>
                 <button type="submit">Registra</button>
-                <a style="color: black;"href="/login">Ti sei già registrato? Accedi</a>
-            </div>
-        </div>
-        <div>
-                <a style="color: black;"href="/logout">Hai sbagliato account? Fai il logout</a>
-        </div>
-    </div>
-</form>
+        	</div>
+			
+			<div>
+				<a th:href="@{/login}">Sei gia registrato?Effettua il login.</a>
+			</div>
+			
+			<div>
+                <a th:href="@{/logout}">Hai sbagliato account? Fai il logout</a>
+        	</div>
+	</form>
 </div>
+</section>
 </body>
+</html>
