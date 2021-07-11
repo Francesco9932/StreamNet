@@ -7,7 +7,7 @@
   <h1>Regista da rimuovere:</h1>
   <ul>
   	<li th:each="regista : ${registi}">
-  		<a th:href="@{'/admin/rimuoviRegista' + '/' + ${regista.id}}"></a>
+  		<a th:href="@{'/admin/rimuoviRegista' + '/' + ${regista.id}}"th:text="|${regista.nome} ${regista.cognome}|"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

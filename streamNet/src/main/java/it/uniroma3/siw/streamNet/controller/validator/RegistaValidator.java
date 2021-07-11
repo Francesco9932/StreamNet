@@ -21,8 +21,7 @@ public class RegistaValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nome" , "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognome" , "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dataDiNascita" , "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "film" , "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "serieTv" , "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "biografia" , "required");
 		
 		if(!errors.hasErrors()) {
 			if(this.streamNetService.registaAlreadyExist((Regista)o)) {

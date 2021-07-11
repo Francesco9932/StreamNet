@@ -54,6 +54,7 @@ public class SerieTvController {
 		serieModificato.setAnnoDiUscita(serie.getAnnoDiUscita());
 		serieModificato.setTitolo(serie.getTitolo());
 		serieModificato.setDescrizione(serie.getDescrizione());
+		serieModificato.setLingua(serie.getLingua());
 		this.streamNetService.rimuoviSerie(serie);
 		model.addAttribute("serie",serieModificato);
 		return "serieForm.html";
