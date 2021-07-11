@@ -40,6 +40,11 @@
       			<span><input type="text" th:field="*{video}"></span>
       			<span th:if="${#fields.hasErrors('video')}" th:errors="*{video}"></span>
   			</div>
+  			<div>
+      			<span>Immagine:</span>
+      			<span><input type="text" th:field="*{immagine}"></span>
+      			<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
+  			</div>
   			<div id="submit-button">
       			<span><button type="submit">Invio</button></span>
   			</div>
