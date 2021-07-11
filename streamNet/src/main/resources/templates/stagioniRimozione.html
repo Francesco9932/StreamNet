@@ -7,6 +7,7 @@
   <ul>
   	<li th:each="stagione : ${stagioni}">
   		<a th:href="@{'/admin/rimuoviStagione' + '/' + ${stagione.id}}" th:text="${stagione.descrizione}"></a>
+  		<h5 th:text="${stagione.descrizione}"></h5>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

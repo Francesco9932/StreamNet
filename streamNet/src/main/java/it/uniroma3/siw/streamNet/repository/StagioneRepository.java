@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 import it.uniroma3.siw.streamNet.model.Stagione;
 
 public interface StagioneRepository extends CrudRepository<Stagione, Long> {
-	
-	public List<Stagione> findByDescrizione(String descrizione);
+
+	public List<Stagione> findByNumero(Long numero);
 }

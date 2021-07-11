@@ -9,12 +9,17 @@
 			<div th:if="${#fields.hasGlobalErrors()}">
   				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 			</div>
-
+			<div>
+      			<span>Stagione numero:</span>
+      			<span><input type="text" th:field="*{numero}"></span>
+      			<span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></span>
+  			</div>
   			<div>
       			<span>Descrizione:</span>
       			<span><input type="text" th:field="*{descrizione}"></span>
       			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
   			</div>
+  			
   			<div id="submit-button">
       			<span><button type="submit">Invio</button></span>
   			</div>

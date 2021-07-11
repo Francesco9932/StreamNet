@@ -20,6 +20,17 @@ public class Stagione {
 	@Column
 	private String descrizione;
 	
+	@Column
+	private Long numero;
+	
+	public Long getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
+	}
+
 	@ManyToOne
 	private SerieTv serieTv;
 	

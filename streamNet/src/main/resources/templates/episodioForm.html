@@ -10,6 +10,11 @@
   				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 			</div>
 			<div>
+      			<span>Episodio numero:</span>
+      			<span><input type="text" th:field="*{numero}"></span>
+      			<span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></span>
+  			</div>
+			<div>
       			<span >Durata:</span>
       			<span><input type="text" th:field="*{durata}"></span>
       			<span th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></span>

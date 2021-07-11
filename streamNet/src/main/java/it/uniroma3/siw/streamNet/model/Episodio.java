@@ -17,6 +17,17 @@ public class Episodio {
 	private String descrizione;
 	
 	@Column
+	private Long numero;
+	
+	public Long getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
+	}
+
+	@Column
 	private int durata;
 	
 	@ManyToOne

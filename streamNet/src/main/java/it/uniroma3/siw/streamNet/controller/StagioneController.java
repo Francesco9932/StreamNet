@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.streamNet.controller.validator.StagioneValidator;
-import it.uniroma3.siw.streamNet.model.Film;
 import it.uniroma3.siw.streamNet.model.Stagione;
 import it.uniroma3.siw.streamNet.service.StreamNetService;
 

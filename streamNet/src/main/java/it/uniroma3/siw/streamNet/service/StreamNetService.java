@@ -131,6 +131,24 @@ public class StreamNetService {
 			return false;
 	}
 	
+	@Transactional
+	public boolean stagioneAlreadyExist(Stagione stagione) {
+		List<Stagione> listaStagione = this.stagioneRepository.findByNumero(stagione.getNumero());
+		if(listaStagione.size() > 0)
+			return true;
+		else
+			return false;
+	}
+	
+	@Transactional
+	public boolean episodioAlreadyExist(Episodio episodio) {
+		List<Episodio> listaEpisodio = this.episodioRepository.findByNumero(episodio.getNumero());
+		if(listaEpisodio.size() > 0)
+			return true;
+		else
+			return false;
+	}
+	
 	
 	@Transactional
 	public void rimuoviFilm(Film film) {
@@ -217,7 +235,7 @@ public class StreamNetService {
 	public List<SerieTv> getSerieRegista(Regista regista) {
 		return this.serieRepository.findByRegistaSerie(regista);
 	}
-	
+
 }
 	
 
