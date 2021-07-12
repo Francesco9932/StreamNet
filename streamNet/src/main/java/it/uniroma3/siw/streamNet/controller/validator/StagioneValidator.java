@@ -24,6 +24,7 @@ public class StagioneValidator implements Validator{
 	public void validate(Object o, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descrizione", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "numero", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "serieTv", "required");
 		
 		if (!errors.hasErrors()) {
 			if (this.streamNetService.stagioneAlreadyExist((Stagione)o)) {

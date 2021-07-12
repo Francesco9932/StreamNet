@@ -19,7 +19,12 @@
       			<span><input type="text" th:field="*{descrizione}"></span>
       			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
   			</div>
-  			
+  			<div>
+  			<span>Serie Tv:</span>
+  				<select th:field="*{serieTv}">
+       				<option th:each="serie : ${series}" th:value="${serie.id}" th:text="|${serie.titolo} (${serie.genere})|"></option>
+    			</select>
+        	</div>
   			<div>
       			<span><button type="submit">Invio</button></span>
   			</div>

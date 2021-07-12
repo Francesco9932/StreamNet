@@ -25,6 +25,7 @@ public class StagioneController {
 	@RequestMapping(value = "/admin/aggiungiStagione", method = RequestMethod.GET)
 	public String aggiungiStagione(Model model) {
 		model.addAttribute("stagione", new Stagione());
+		model.addAttribute("series", this.streamNetService.getAllSerie());
 		return "stagioneForm.html";
 	}
 	
