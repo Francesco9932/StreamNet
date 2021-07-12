@@ -57,6 +57,8 @@ public class EpisodioController {
 		episodioModificato.setNumero(episodio.getNumero());
 		episodioModificato.setDescrizione(episodio.getDescrizione());
 		episodioModificato.setDurata(episodio.getDurata());
+		episodioModificato.setVideo(episodio.getVideo());
+		episodioModificato.setTitolo(episodio.getTitolo());
 		this.streamNetService.rimuoviEpisodio(episodio);
 		model.addAttribute("episodio",episodioModificato);
 		model.addAttribute("stagioni", this.streamNetService.getAllStagione());
