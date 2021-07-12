@@ -5,7 +5,24 @@
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
 
-	<h1>ciao</h1>
+	<section id="section-video">
+  	<div class="main-video">
+  		<iframe width="720" height="480"  th:src="${episodio.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+		 encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+		</iframe>
+  	</div>
+  	<div class="sub-video">
+  		<div class="col">
+  			<div class="riga">
+  				<div><p th:text="'Titolo: ' + ${episodio.titolo}"></p></div>
+  			</div>
+  			<div class="riga">
+  				<div><p th:text="'Descrizione: ' + ${episodio.descrizione}"></p></div>
+  				<div><p th:text="'Numero: ' + ${episodio.numero}"></p></div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
 
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>

@@ -4,14 +4,14 @@
 
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
-  <div>
-  	<form th:if="${serie.nellaMiaLista}==false" th:action="@{'/aggiungiserieAllaMiaLista' + '/' + ${serie.id}}" method="GET" th:object="${serie}">
-  		<button type="submit">Aggiungi a La mia lista</button>
- 	</form>
-  	<form th:unless="${serie.nellaMiaLista}==false" th:action="@{'/rimuoviserieDallaMiaLista' + '/' + ${serie.id}}" method="GET" th:object="${serie}">
-  		<button type="submit">Rimuovi da La mia lista</button>
-  	</form>
-  </div>
+ <div>
+ 	<ul>
+ 		<li th:each="stagione : ${stagioni}">
+ 			<h1 th:text="'Stagione numero.' + ${stagione.numero}"></h1>
+ 			<a th:each="episodio : ${stagione.episodi}" th:href="'/episodio' + '/' + {episodio.id}"></a>
+ 		</li>
+ 	</ul>
+ </div>
   
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>

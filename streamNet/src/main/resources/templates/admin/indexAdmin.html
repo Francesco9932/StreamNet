@@ -27,11 +27,13 @@
   	
   	<h1 class="category-title">Serie tv</h1>
   	<div class="content-container">
-  		<a th:each="serie : ${series}"><img th:src="${serie.immagine}"><img></a>
+  		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" ><img th:src="${serie.immagine}"></a>
   	</div>
   	
-  	<h1>OPERAZIONI ADMIN</h1>
-  	<ul>
+  	
+  	<div class="container-operazioni-admin">	
+  		<h1>OPERAZIONI ADMIN</h1>
+  		<ul>
   		<h3>Operazioni su film:</h3>
   		<li><a th:href="@{/admin/aggiungiFilm}">Aggiungi Film</a></li>
   		<li><a th:href="@{/admin/filmDaModificare}">Modifica Film</a></li>
@@ -55,6 +57,8 @@
   		<h3>Operazioni sugli abbonamenti:</h3>
   		<li><a th:href="@{/admin/utentiModificaAbbonamento}">Modifica abbonamento di un utente</a></li>
   	</ul>
+  	</div>
+  	
   </section>
  <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>

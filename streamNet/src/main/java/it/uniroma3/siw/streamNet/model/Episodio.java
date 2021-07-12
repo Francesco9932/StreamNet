@@ -14,7 +14,13 @@ public class Episodio {
 	private Long id;
 	
 	@Column
+	private String titolo;
+	
+	@Column
 	private String descrizione;
+	
+	@Column
+	private String video;
 	
 	@Column
 	private Long numero;
@@ -63,5 +69,21 @@ public class Episodio {
 
 	public void setStagione(Stagione stagione) {
 		this.stagione = stagione;
+	}
+
+	public String getVideo() {
+		return video;
+	}
+
+	public void setVideo(String video) {
+		this.video = video;
+	}
+
+	public String getTitolo() {
+		return titolo;
+	}
+
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
 	}
 }

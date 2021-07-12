@@ -17,7 +17,7 @@ body{
 	justify-content: space-between;
 	font-family: Arial, Helvetica, sans-serif;
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 }
 
 
@@ -113,8 +113,8 @@ section{
 	align-items: center;
 }
 .container-form-entity{
-	width: 420px;
-	height: 520px;
+	width: 550px;
+	height: 650px;
 	background-color: var(--white);
 	color: var(--black);
 	box-sizing: border-box;
@@ -134,7 +134,7 @@ section{
 	margin:7px 0px 7px 0px;
 }
 .container-form-entity > form > div{
-	margin:8px 0px 8px 0px;
+	margin:4px 0px 4px 0px;
 }
 .container-form-auth > form > div > a{
 	text-decoration: none;
@@ -179,7 +179,7 @@ section{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding:0px;
+	padding: 50px 0px;
 }
 
 /*film/serieTv page*/
@@ -215,3 +215,20 @@ section{
 	font-size: 20px;
 	font-weight: bold;
 }
+.container-operazioni-admin > ul > li{
+	margin:5px 0px;
+}
+.container-operazioni-admin > h1{
+	font-weight: bold;
+	margin: 10px 0px;
+}
+.container-operazioni-admin > ul > li > a{
+	text-decoration: none;
+	color:var(--white);
+	margin:10px 0px;
+	font-style: italic;
+}
+.container-operazioni-admin > ul > li > a:hover{
+	color: red;
+}
+
