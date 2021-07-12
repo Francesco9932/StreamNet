@@ -41,4 +41,9 @@ public class StreamNetController {
 		model.addAttribute("series", this.streamNetService.getAllSerie());
 		return "series.html";
 	}
+	
+	@RequestMapping(value={"/","/index"}, method = RequestMethod.GET)
+	public String getIndex() {
+		return "redirect:/default";
+	}
 }

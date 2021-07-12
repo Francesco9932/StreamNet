@@ -31,7 +31,7 @@ public class SerieTvValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "annoDiUscita", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lingua", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "immagine", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "regista", "required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "registaSerie", "required");
 
 		if (!errors.hasErrors() && !daModificare) {
 			if (this.streamNetService.serieAlreadyExist((SerieTv)o)) {

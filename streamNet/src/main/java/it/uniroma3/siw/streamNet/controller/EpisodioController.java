@@ -59,6 +59,7 @@ public class EpisodioController {
 		episodioModificato.setDurata(episodio.getDurata());
 		this.streamNetService.rimuoviEpisodio(episodio);
 		model.addAttribute("episodio",episodioModificato);
+		model.addAttribute("stagioni", this.streamNetService.getAllStagione());
 		return "episodioForm.html";
 	}
 	
@@ -70,6 +71,7 @@ public class EpisodioController {
 			this.streamNetService.aggiungiEpisodio(episodio);
 			return "redirect:/default";
 		}
+		model.addAttribute("stagioni", this.streamNetService.getAllStagione());
 		return "episodioForm.html";
 	}
 	

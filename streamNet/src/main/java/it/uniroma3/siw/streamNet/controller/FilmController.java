@@ -76,6 +76,7 @@ public class FilmController {
 			this.streamNetService.aggiungiFilm(film);
 			return "redirect:/films";
 		}
+		model.addAttribute("registi", this.streamNetService.getAllRegista());
 		return "filmForm.html";
 	}
 	

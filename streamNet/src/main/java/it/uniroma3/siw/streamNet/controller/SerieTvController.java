@@ -58,6 +58,7 @@ public class SerieTvController {
 		serieModificato.setLingua(serie.getLingua());
 		this.streamNetService.rimuoviSerie(serie);
 		model.addAttribute("serie",serieModificato);
+		model.addAttribute("registi", this.streamNetService.getAllRegista());
 		return "serieForm.html";
 	}
 	
@@ -69,6 +70,7 @@ public class SerieTvController {
 			this.streamNetService.aggiungiSerie(serie);
 			return "redirect:/series";
 		}
+		model.addAttribute("registi", this.streamNetService.getAllRegista());
 		return "serieForm.html";
 	}
 	

@@ -31,25 +31,25 @@ public class StagioneController {
 		model.addAttribute("series", this.streamNetService.getAllSerie());
 		return "stagioneForm.html";
 	}
-	
+
 	@RequestMapping(value = "/admin/stagioneDaRimuovere", method = RequestMethod.GET)
 	public String mostraStagioneDaRimuovere(Model model) {
 		model.addAttribute("stagioni",streamNetService.getAllStagione());
 		return "stagioniRimozione.html";
 	}
-	
+
 	@RequestMapping(value = "/admin/rimuoviStagione/{id}", method = RequestMethod.GET)
 	public String rimuoviStagione(@PathVariable("id") Long id, Model model) {
 		this.streamNetService.rimuoviStagionePerId(id);
 		return "redirect:/default";
 	}
-	
+
 	@RequestMapping(value = "/admin/stagioneDaModificare", method = RequestMethod.GET)
 	public String mostraStagioneDaModificare(Model model) {
 		model.addAttribute("stagioni",streamNetService.getAllStagione());
 		return "stagioniModifica.html";
 	}
-	
+
 	@RequestMapping(value="/admin/modificaStagione/{id}", method = RequestMethod.GET)
 	public String getStagioneDaModificare(@PathVariable("id") Long id,Model model) {
 		Stagione stagione = this.streamNetService.getStagionePerId(id);
@@ -58,9 +58,10 @@ public class StagioneController {
 		stagioneModificato.setDescrizione(stagione.getDescrizione());
 		this.streamNetService.rimuoviStagione(stagione);
 		model.addAttribute("stagione",stagioneModificato);
+		model.addAttribute("series", this.streamNetService.getAllSerie());
 		return "stagioneForm.html";
 	}
-	
+
 	@RequestMapping(value =  "/admin/stagione", method = RequestMethod.POST)
 	public String newStagione(@ModelAttribute Stagione stagione,
 			Model model, BindingResult bindingResult) {
@@ -69,16 +70,16 @@ public class StagioneController {
 			this.streamNetService.aggiungiStagione(stagione);
 			return "redirect:/default";
 		}
-		else
-			return "stagioneForm.html";
+		model.addAttribute("series", this.streamNetService.getAllSerie());
+		return "stagioneForm.html";
 	}
-	
+
 	@RequestMapping(value = "/admin/mostraStagioniDaAggiungereAllaSerie", method = RequestMethod.GET)
 	public String mostraStagioniDaAggiungereAllaSerie(Model model) {
 		model.addAttribute("stagioni",streamNetService.getAllStagione());
 		return "aggiungiStagioneAllaSerie.html";
 	}
-	
+
 	@RequestMapping(value = "/admin/aggiungiStagioneAllaSerie/{idStagione}/{id}", method = RequestMethod.GET)
 	public String aggiungiStagioneAllaSerie(@PathVariable("id") Long id, 
 			@PathVariable("idStagione")Long idStagione, Model model) {
