@@ -35,6 +35,11 @@
             	<input type="text" placeholder="attori" th:field="*{attori}"/>
             	<div th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></div>
         	</div>
+			<div>
+            	<p>Lingua:</p>
+            	<input type="text" placeholder="lingua" th:field="*{lingua}"/>
+            	<div th:if="${#fields.hasErrors('lingua')}" th:errors="*{lingua}"></div>
+        	</div>
   			<div>
             	<p>Video:</p>
             	<input type="text" placeholder="video" th:field="*{video}"/>
