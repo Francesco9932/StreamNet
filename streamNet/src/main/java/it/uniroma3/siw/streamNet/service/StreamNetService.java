@@ -133,7 +133,7 @@ public class StreamNetService {
 	
 	@Transactional
 	public boolean stagioneAlreadyExist(Stagione stagione) {
-		List<Stagione> listaStagione = this.stagioneRepository.findByNumero(stagione.getNumero());
+		List<Stagione> listaStagione = this.stagioneRepository.findByNumeroAndId(stagione.getNumero(), stagione.getId());
 		if(listaStagione.size() > 0)
 			return true;
 		else

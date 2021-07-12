@@ -8,5 +8,5 @@ import it.uniroma3.siw.streamNet.model.Stagione;
 
 public interface StagioneRepository extends CrudRepository<Stagione, Long> {
 
-	public List<Stagione> findByNumero(Long numero);
+	public List<Stagione> findByNumeroAndId(Long numero, Long id);
 }
