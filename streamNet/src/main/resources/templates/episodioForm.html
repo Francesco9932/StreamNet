@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
-
 <body>
-	<header th:replace="/fragments/components.html :: header"></header>
+<header th:replace="/fragments/components.html :: header"></header>
+<section id="section-form">
+<div class="container-form-entity">
 	<form th:action="@{/admin/episodio}" method="POST" th:object="${episodio}">
+	<h1>Form episodio</h1>	
 		<div>
 			<div th:if="${#fields.hasGlobalErrors()}">
   				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+				</div>
 			</div>
 			<div>
-      			<span>Episodio numero:</span>
-      			<span><input type="text" th:field="*{numero}"></span>
-      			<span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></span>
+      			<p>Episodio numero:</p>
+      			<input type="text" th:field="*{numero}"/>
+      			<div th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></div>
   			</div>
 			<div>
-      			<span >Durata:</span>
-      			<span><input type="text" th:field="*{durata}"></span>
-      			<span th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></span>
+      			<p >Durata:</p>
+      			<input type="text" th:field="*{durata}"/>
+      			<div th:if="${#fields.hasErrors('durata')}" th:errors="*{durata}"></div>
   			</div>
   			<div>
-      			<span>Descrizione:</span>
-      			<span><input type="text" th:field="*{descrizione}"></span>
-      			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+      			<p>Descrizione:</p>
+      			<input type="text" th:field="*{descrizione}"/>
+      			<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
   			</div>
   			<div>
-			<div>
             	<p>Video:</p>
             	<input type="text" placeholder="video" th:field="*{video}"/>
             	<div th:if="${#fields.hasErrors('video')}" th:errors="*{video}"></div>
         	</div>
- 			<div>
 			<div>
-      			<span >Titolo:</span>
-      			<span><input type="text" th:field="*{titolo}"></span>
-      			<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+      			<p >Titolo:</p>
+      			<input type="text" th:field="*{titolo}"/>
+      			<div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></div>
   			</div>
-  			<span>Stagione:</span>
+  			<div>
+  				<span>Stagione:</span>
   				<select th:field="*{stagione}">
        				<option th:each="stagione : ${stagioni}" th:value="${stagione.id}" th:text="|${stagione.numero} ( ${stagione.descrizione})|"></option>
     			</select>
         	</div>
   	
-  			<div id="submit-button">
-      			<span><button type="submit">Invio</button></span>
+  			<div>
+      			<button type="submit">Invio</button>
   			</div>
-		</div>
-	</form>
-	<footer th:replace="/fragments/components.html :: footer"></footer>
+  	</form>
+</div>
+</section>
+<footer th:replace="/fragments/components.html :: footer"></footer>
 </body>
 </html>

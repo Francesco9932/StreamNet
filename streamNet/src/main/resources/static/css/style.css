@@ -232,3 +232,14 @@ section{
 	color: red;
 }
 
+
+.container-lista > ul > li > a {
+	text-decoration: none;
+	color:var(--white);
+	margin:10px 0px;
+	font-style: italic;
+}
+
+.container-lista > ul > li > a:hover{
+	color: red;
+}

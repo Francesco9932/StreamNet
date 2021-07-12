@@ -4,12 +4,14 @@
 
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
+  <div class="container-lista">
   <h1>Film da rimuovere:</h1>
   <ul>
   	<li th:each="film : ${films}">
   		<a th:href="@{'/admin/rimuoviFilm' + '/' + ${film.id}}" th:text="${film.titolo}"></a>
   	</li>
   </ul>
+  </div>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

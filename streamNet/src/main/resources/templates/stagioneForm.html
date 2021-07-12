@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
-
 <body>
-	<header th:replace="/fragments/components.html :: header"></header>
+<header th:replace="/fragments/components.html :: header"></header>
+<section id="section-form">
+<div class="container-form-entity">
 	<form th:action="@{/admin/stagione}" method="POST" th:object="${stagione}">
+	<h1>Form stagione</h1>
 		<div>
 			<div th:if="${#fields.hasGlobalErrors()}">
   				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 			</div>
-			<div>
-      			<span>Stagione numero:</span>
-      			<span><input type="text" th:field="*{numero}"></span>
-      			<span th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></span>
-  			</div>
-  			<div>
-      			<span>Descrizione:</span>
-      			<span><input type="text" th:field="*{descrizione}"></span>
-      			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
-  			</div>
-  			<div>
-  			<span>Serie Tv:</span>
+		</div>
+		<div>
+      		<p>Stagione numero:</p>
+      		<input type="text" th:field="*{numero}"/>
+      		<div th:if="${#fields.hasErrors('numero')}" th:errors="*{numero}"></div>
+  		</div>
+  		
+  		<div>
+      		<p>Descrizione:</p>
+      		<input type="text" th:field="*{descrizione}"/>
+      		<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
+  		</div>
+  		
+  		<div>
+  		<p>Serie Tv:</p>
   				<select th:field="*{serieTv}">
        				<option th:each="serie : ${series}" th:value="${serie.id}" th:text="|${serie.titolo} (${serie.genere})|"></option>
     			</select>
         	</div>
   			<div>
-      			<span><button type="submit">Invio</button></span>
-  			</div>
-		</div>
+      			<button type="submit">Invio</button>
+  			</div>	
 	</form>
+	</div>
+	</section>
 	<footer th:replace="/fragments/components.html :: footer"></footer>
 </body>
 </html>

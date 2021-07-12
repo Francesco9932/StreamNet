@@ -5,11 +5,13 @@
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
   <h1>serie da rimuovere:</h1>
+  <div class="container-lista">
   <ul>
   	<li th:each="serie : ${series}">
   		<a th:href="@{'/admin/rimuoviSerie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>
   	</li>
   </ul>
+  </div>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>
