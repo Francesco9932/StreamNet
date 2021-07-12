@@ -8,5 +8,5 @@ import it.uniroma3.siw.streamNet.model.Episodio;
 
 public interface EpisodioRepository extends CrudRepository<Episodio, Long> {
 
-	public List<Episodio> findByNumero(Long numero);
+	public List<Episodio> findByNumeroAndId(Long numero, Object episodiogetId);
 }

@@ -142,7 +142,7 @@ public class StreamNetService {
 	
 	@Transactional
 	public boolean episodioAlreadyExist(Episodio episodio) {
-		List<Episodio> listaEpisodio = this.episodioRepository.findByNumero(episodio.getNumero());
+		List<Episodio> listaEpisodio = this.episodioRepository.findByNumeroAndId(episodio.getNumero(), episodiogetId());
 		if(listaEpisodio.size() > 0)
 			return true;
 		else
@@ -150,6 +150,11 @@ public class StreamNetService {
 	}
 	
 	
+	private Object episodiogetId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	@Transactional
 	public void rimuoviFilm(Film film) {
 		this.filmRepository.delete(film);
