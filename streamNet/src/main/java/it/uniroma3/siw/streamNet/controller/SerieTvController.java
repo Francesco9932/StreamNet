@@ -56,6 +56,8 @@ public class SerieTvController {
 		serieModificato.setTitolo(serie.getTitolo());
 		serieModificato.setDescrizione(serie.getDescrizione());
 		serieModificato.setLingua(serie.getLingua());
+		serieModificato.setImmagine(serie.getImmagine());
+		serieModificato.setGenere(serie.getGenere());
 		this.streamNetService.rimuoviSerie(serie);
 		model.addAttribute("serie",serieModificato);
 		model.addAttribute("registi", this.streamNetService.getAllRegista());
