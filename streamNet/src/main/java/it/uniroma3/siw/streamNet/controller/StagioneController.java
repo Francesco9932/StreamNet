@@ -41,7 +41,7 @@ public class StagioneController {
 	@RequestMapping(value = "/admin/rimuoviStagione/{id}", method = RequestMethod.GET)
 	public String rimuoviStagione(@PathVariable("id") Long id, Model model) {
 		this.streamNetService.rimuoviStagionePerId(id);
-		return "redirect:/stagioni";
+		return "redirect:/default";
 	}
 	
 	@RequestMapping(value = "/admin/stagioneDaModificare", method = RequestMethod.GET)
