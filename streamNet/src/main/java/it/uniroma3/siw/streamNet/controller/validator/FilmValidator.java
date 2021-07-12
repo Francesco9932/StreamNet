@@ -31,7 +31,6 @@ public class FilmValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "video", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "immagine", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "genere", "required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "posterImmagine", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "durata", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "registaFilm", "required");
 

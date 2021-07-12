@@ -1,0 +1,20 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
+
+<body>
+ <header th:replace="/fragments/components.html :: header"></header>
+ <section>
+ 	<div class="container-operazioni-admin">
+ 	<ul>
+ 		<li th:each="episodio : ${episodi}">
+ 			<p th:if="${episodio.stagione}!=null" th:text="${episodio.stagione.numero}"></p>
+ 			<a th:if="${episodio.stagione}!=null" th:href="'/admin/aggiungiEpisodioAllaStagione' + '/' + ${episodio.id} + '/' + ${episodio.stagione.id}" th:text="'Episodio: ' + ${episodio.titolo}"></a>
+ 		</li>
+ 	</ul>
+ 	</div>
+ </section>
+  
+ <footer th:replace = "/fragments/components.html :: footer"></footer>
+</body>
+</html>

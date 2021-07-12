@@ -1,5 +1,7 @@
 package it.uniroma3.siw.streamNet.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.streamNet.controller.validator.StagioneValidator;
+import it.uniroma3.siw.streamNet.model.SerieTv;
 import it.uniroma3.siw.streamNet.model.Stagione;
 import it.uniroma3.siw.streamNet.service.StreamNetService;
 
@@ -64,10 +67,27 @@ public class StagioneController {
 		this.stagioneValidator.validate(stagione, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.streamNetService.aggiungiStagione(stagione);
-			return "redirect:/stagioni";
+			return "redirect:/default";
 		}
 		else
 			return "stagioneForm.html";
 	}
-
+	
+	@RequestMapping(value = "/admin/mostraStagioniDaAggiungereAllaSerie", method = RequestMethod.GET)
+	public String mostraStagioniDaAggiungereAllaSerie(Model model) {
+		model.addAttribute("stagioni",streamNetService.getAllStagione());
+		return "aggiungiStagioneAllaSerie.html";
+	}
+	
+	@RequestMapping(value = "/admin/aggiungiStagioneAllaSerie/{idStagione}/{id}", method = RequestMethod.GET)
+	public String aggiungiStagioneAllaSerie(@PathVariable("id") Long id, 
+			@PathVariable("idStagione")Long idStagione, Model model) {
+		Stagione stagioneDaAggiungere = this.streamNetService.getStagionePerId(idStagione);
+		SerieTv serie = this.streamNetService.getSeriePerId(id);
+		List<Stagione> stagioniDellaSerie = serie.getStagioni();
+		stagioniDellaSerie.add(stagioneDaAggiungere);
+		serie.setStagioni(stagioniDellaSerie);
+		streamNetService.aggiungiSerie(serie);
+		return "redirect:/default";
+	}
 }

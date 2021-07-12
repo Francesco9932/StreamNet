@@ -75,6 +75,15 @@ public class SerieTvController {
 	@RequestMapping(value="/serie/{id}",method = RequestMethod.GET)
 	public String getSerie(@PathVariable("id") Long id,Model model) {
 		model.addAttribute("serie",this.streamNetService.getSeriePerId(id));
+		model.addAttribute("stagioni",this.streamNetService.getAllStagione());
+		return "serie.html";
+	}
+	
+	@RequestMapping(value="/aggiungiStagioneAllaSerie/{idStagione}/{id}",method = RequestMethod.GET)
+	public String aggiungiStagioneAllaSerie(@PathVariable("idStagione") Long idStagione,
+			@PathVariable("id") Long id, Model model) {
+		model.addAttribute("serie",this.streamNetService.getSeriePerId(id));
+		model.addAttribute("stagione",this.streamNetService.getStagionePerId(idStagione));
 		return "serie.html";
 	}
 	

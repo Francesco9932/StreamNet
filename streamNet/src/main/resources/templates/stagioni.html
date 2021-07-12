@@ -7,7 +7,7 @@
   <h1>Lista Stagioni:</h1>
   <ul>
   	<li th:each="stagione : ${stagioni}">
-  		  		<a th:href="@{'/stagioni' + '/' + ${stagione.id}}"th:text="${stagione.numero}"></a>
+  		  		<a th:href="@{'/aggiungiStagioneAllaSerie' + '/' + ${stagione.id} + '/' + {stagione.serie.id}}"th:text="${stagione.numero}"></a>
   	</li>
   </ul>
   <footer th:replace = "/fragments/components.html :: footer"></footer>

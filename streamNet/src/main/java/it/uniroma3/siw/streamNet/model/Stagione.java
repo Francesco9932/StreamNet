@@ -23,14 +23,6 @@ public class Stagione {
 	
 	@Column
 	private Long numero;
-	
-	public Long getNumero() {
-		return numero;
-	}
-
-	public void setNumero(Long numero) {
-		this.numero = numero;
-	}
 
 	@ManyToOne
 	private SerieTv serieTv;
@@ -72,5 +64,13 @@ public class Stagione {
 
 	public void setEpisodi(List<Episodio> episodi) {
 		this.episodi = episodi;
+	}
+	
+	public Long getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
 	}
 }

@@ -24,14 +24,6 @@ public class Episodio {
 	
 	@Column
 	private Long numero;
-	
-	public Long getNumero() {
-		return numero;
-	}
-
-	public void setNumero(Long numero) {
-		this.numero = numero;
-	}
 
 	@Column
 	private int durata;
@@ -85,5 +77,13 @@ public class Episodio {
 
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
+	}
+	
+	public Long getNumero() {
+		return numero;
+	}
+
+	public void setNumero(Long numero) {
+		this.numero = numero;
 	}
 }
