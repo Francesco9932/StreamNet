@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.streamNet.controller.validator.FilmValidator;
 import it.uniroma3.siw.streamNet.model.Film;
-import it.uniroma3.siw.streamNet.model.Regista;
 import it.uniroma3.siw.streamNet.service.StreamNetService;
 
 @Controller
@@ -56,8 +55,16 @@ public class FilmController {
 		filmModificato.setAnnoDiUscita(film.getAnnoDiUscita());
 		filmModificato.setTitolo(film.getTitolo());
 		filmModificato.setDescrizione(film.getDescrizione());
+		filmModificato.setVideo(film.getVideo());
+		filmModificato.setGenere(film.getGenere());
+		filmModificato.setDurata(film.getDurata());
+		filmModificato.setImmagine(film.getImmagine());
+		filmModificato.setLingua(film.getLingua());
+		filmModificato.setRegistaFilm(film.getRegistaFilm());
+		filmModificato.setNellaMiaLista(film.isNellaMiaLista());
 		this.streamNetService.rimuoviFilm(film);
 		model.addAttribute("film",filmModificato);
+		model.addAttribute("registi", this.streamNetService.getAllRegista());
 		return "filmForm.html";
 	}
 	
