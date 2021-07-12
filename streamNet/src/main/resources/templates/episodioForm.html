@@ -25,6 +25,17 @@
       			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
   			</div>
   			<div>
+			<div>
+            	<p>Video:</p>
+            	<input type="text" placeholder="video" th:field="*{video}"/>
+            	<div th:if="${#fields.hasErrors('video')}" th:errors="*{video}"></div>
+        	</div>
+ 			<div>
+			<div>
+      			<span >Titolo:</span>
+      			<span><input type="text" th:field="*{titolo}"></span>
+      			<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+  			</div>
   			<span>Stagione:</span>
   				<select th:field="*{stagione}">
        				<option th:each="stagione : ${stagioni}" th:value="${stagione.id}" th:text="|${stagione.numero} ( ${stagione.descrizione})|"></option>

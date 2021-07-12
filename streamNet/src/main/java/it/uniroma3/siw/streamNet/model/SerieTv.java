@@ -3,6 +3,7 @@ package it.uniroma3.siw.streamNet.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,7 +46,7 @@ public class SerieTv {
 	@ManyToOne()
 	private Regista registaSerie;
 
-	@OneToMany(mappedBy = "serieTv")
+	@OneToMany(mappedBy = "serieTv", cascade=CascadeType.ALL)
 	private List<Stagione> stagioni;
 
 	public SerieTv() {
