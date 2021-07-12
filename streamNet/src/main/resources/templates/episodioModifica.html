@@ -4,12 +4,14 @@
 
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
+  <div class="container-lista">
   <h1>Episodio da modificare:</h1>
   <ul>
   	<li th:each="episodio : ${episodi}">
   		<a th:href="@{'/admin/modificaEpisodio' + '/' + ${episodio.id}}" th:text="${episodio.numero}"></a>
   	</li>
   </ul>
+  </div>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

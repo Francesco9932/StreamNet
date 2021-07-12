@@ -4,12 +4,14 @@
 <body>
   <header th:replace="/fragments/components.html :: header"></header>
   <h1>Stagione da rimuovere:</h1>
+  <div class="container-lista">
   <ul>
   	<li th:each="stagione : ${stagioni}">
   		<a th:href="@{'/admin/rimuoviStagione' + '/' + ${stagione.id}}" th:text="${stagione.numero}"></a>
   		<h5 th:text="${stagione.descrizione}"></h5>
   	</li>
   </ul>
+  <div>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>
