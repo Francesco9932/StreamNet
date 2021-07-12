@@ -5,8 +5,8 @@
 <header th:replace = "/fragments/components.html :: header"></header>
 <section id="section-form">
 <div class="container-form-entity">
-	<h1>Form film</h1>
 	<form th:action="@{/admin/film}" method="POST" th:object="${film}">
+	<h1>Form film</h1>
 			<div>
 				<div th:if="${#fields.hasGlobalErrors()}">
   					<p style="color: white; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>

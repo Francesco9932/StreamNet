@@ -7,9 +7,9 @@
   
   <section id="section-video">
   	<div class="main-video">
-  		<video width="720" height="480" poster="${film.posterImmagine}" controls>
- 	 		<source th:src="'${film.video}'" type="video/mp4">
-		</video>
+  		<iframe width="720" height="480"  th:src="${film.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+		 encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+		</iframe>
   	</div>
   	<div class="sub-video">
   		<div class="col">
