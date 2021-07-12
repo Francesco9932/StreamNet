@@ -40,7 +40,7 @@
   			<div>
   				<span>Stagione:</span>
   				<select th:field="*{stagione}">
-       				<option th:each="stagione : ${stagioni}" th:value="${stagione.id}" th:text="|${stagione.numero} ( ${stagione.descrizione})|"></option>
+       				<option th:each="stagione : ${stagioni}" th:value="${stagione.id}" th:text="|${stagione.numero}|"></option>
     			</select>
         	</div>
   	
