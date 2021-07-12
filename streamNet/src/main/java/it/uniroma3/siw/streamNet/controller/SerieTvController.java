@@ -25,6 +25,7 @@ public class SerieTvController {
 	@RequestMapping ( value = "/admin/aggiungiSerie", method = RequestMethod.GET)
 	public String aggiungiSerie(Model model) {
 		model.addAttribute("serie", new SerieTv());
+		model.addAttribute("registi", this.streamNetService.getAllRegista());
 		return "serieForm.html";
 	}
 	

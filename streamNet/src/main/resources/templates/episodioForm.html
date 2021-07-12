@@ -24,6 +24,12 @@
       			<span><input type="text" th:field="*{descrizione}"></span>
       			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
   			</div>
+  			<div>
+  			<span>Stagione:</span>
+  				<select th:field="*{stagione}">
+       				<option th:each="stagione : ${stagioni}" th:value="${stagione.id}" th:text="|${stagione.numero} ( ${stagione.descrizione})|"></option>
+    			</select>
+        	</div>
   	
   			<div id="submit-button">
       			<span><button type="submit">Invio</button></span>

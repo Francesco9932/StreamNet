@@ -25,6 +25,7 @@ public class EpisodioController {
 	@RequestMapping ( value = "/admin/aggiungiEpisodio", method = RequestMethod.GET)
 	public String aggiungiEpisodio(Model model) {
 		model.addAttribute("episodio", new Episodio());
+		model.addAttribute("stagioni", this.streamNetService.getAllStagione());
 		return "episodioForm.html";
 	}
 	

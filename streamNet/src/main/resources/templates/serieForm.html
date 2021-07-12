@@ -34,12 +34,6 @@
       			<span><input type="text" th:field="*{lingua}"></span>
       			<span th:if="${#fields.hasErrors('lingua')}" th:errors="*{lingua}"></span>
   			</div>
-  			<div th:if="${registi}!=null">
-      			<span>Regista:</span>
-    			<select th:field="*{registaSerie}">
-    				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
-    			</select>
-  			</div>
   			<div>
       			<span>Immagine:</span>
       			<span><input type="text" th:field="*{immagine}"></span>
@@ -55,9 +49,16 @@
       			<span><input type="text" th:field="*{genere}"></span>
       			<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
   			</div>
+  			<span>Regista:</span>
+  				<select th:field="*{registaSerie}">
+       				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
+    			</select>
+        	</div>
   			<div id="submit-button">
       			<span><button type="submit">Invio</button></span>
   			</div>
+  			<div>
+            	
 		</div>
 	</form>
 	<footer th:replace="/fragments/components.html :: footer"></footer>
