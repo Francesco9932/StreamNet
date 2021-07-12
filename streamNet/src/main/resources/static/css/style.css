@@ -32,6 +32,7 @@ header{
 	margin-right: 15px;
 }
 .main-nav{
+	margin: 10px 0px 0px 0px;
 	display: flex;
 	align-items: center;
 	width: 80%;
@@ -47,6 +48,7 @@ header{
 }
 .sub-nav{
 	display: flex;
+	margin: 0px 10px 0px 0px;
 }
 .sub-nav a{
 	text-decoration: none;
@@ -71,6 +73,22 @@ footer{
 }
 .footer-text div{
 	display: flex;
+}
+
+.footer-social{
+	display: flex;
+}
+
+.footer-social > li{
+	list-style-type: none;
+	padding: 0px 5px;
+}
+.i-social{
+	font-size: 30px;
+	color: var(--white);
+}
+.i-register{
+	font-size: 30px;
 }
 
 

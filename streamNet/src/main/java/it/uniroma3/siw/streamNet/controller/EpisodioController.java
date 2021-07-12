@@ -47,7 +47,7 @@ public class EpisodioController {
 	@RequestMapping(value = "/admin/rimuoviEpisodio/{id}", method = RequestMethod.GET)
 	public String rimuoviEpisodio(@PathVariable("id") Long id, Model model) {
 		this.streamNetService.rimuoviEpisodioPerId(id);
-		return "redirect:/episodi";
+		return "redirect:/default";
 	}
 	
 	@RequestMapping(value="/admin/modificaEpisodio/{id}", method = RequestMethod.GET)
@@ -68,7 +68,7 @@ public class EpisodioController {
 		this.episodioValidator.validate(episodio, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			this.streamNetService.aggiungiEpisodio(episodio);
-			return "redirect:/episodi";
+			return "redirect:/default";
 		}
 		return "episodioForm.html";
 	}

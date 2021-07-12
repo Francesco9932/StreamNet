@@ -12,7 +12,7 @@
 	<!--HEADER-->
 	<header th:fragment = "header">
 		<div class="streamnet-logo">
-			<h1>STREAMNET</h1>
+			<img width="180px" src="/images/logo.png">
 		</div>
 		<nav class="main-nav">
 			<a class="active" th:href="@{/default}">Home</a>
@@ -21,8 +21,7 @@
 			<a th:href="@{/laMiaLista}">La mia lista</a>
   		</nav>
   		<nav class="sub-nav">
-  			<a th:href= "@{/}"><i class="fas fa-search"></i></a>
-  			<a th:href= "@{/register}"><i class="fas fa-user-circle"></i></a>
+  			<a th:href= "@{/register}"><i class="fas fa-user-circle i-register"></i></a>
   		</nav>
 	</header>
   	<!--FINE HEADER-->

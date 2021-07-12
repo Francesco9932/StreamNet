@@ -4,14 +4,20 @@
 
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
- <div>
+ <section>
+ 	<div class="container-operazioni-admin">
  	<ul>
+ 		<h1 th:text="${serie.titolo}"></h1>
  		<li th:each="stagione : ${stagioni}">
  			<h1 th:text="'Stagione numero.' + ${stagione.numero}"></h1>
- 			<a th:each="episodio : ${stagione.episodi}" th:href="'/episodio' + '/' + ${episodio.id}" th:text="${episodio.titolo} + 'episodio' + ${episodio.numero}"></a>
+  			<div class="content-container">
+  				<img th:src="${stagione.serieTv.immagine}">
+  			</div>
+  			<a style="display: flex;"th:each="episodio : ${stagione.episodi}" th:href="'/episodio' + '/' + ${episodio.id}" th:text="${episodio.titolo} + 'episodio' + ${episodio.numero}"></a>
  		</li>
  	</ul>
  </div>
+ </section>
   
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
