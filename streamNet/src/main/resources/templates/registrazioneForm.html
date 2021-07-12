@@ -29,13 +29,6 @@
            		<input type="text" placeholder="cognome" required th:field="${utente.cognome}"/>
             	<div th:if="${#fields.hasErrors('utente.cognome')}"  th:errors="${utente.cognome}"></div>
         	</div>
-        	
-        	<div>
-      			<p>Tipologia di abbonamento:</p>
-    			<select th:field="${credenziali.abbonamento}">
-    				<option th:each="abbonamento : ${T(it.uniroma3.siw.streamNet.model.Abbonamento).values()}" th:value="${abbonamento}" th:text="${abbonamento}"></option>
-    			</select>
-  			</div>
 			
 			<div>
                 <button type="submit">Registra</button>

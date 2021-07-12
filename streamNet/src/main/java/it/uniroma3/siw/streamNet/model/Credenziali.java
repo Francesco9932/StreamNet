@@ -3,8 +3,6 @@ package it.uniroma3.siw.streamNet.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,9 +26,6 @@ public class Credenziali {
 	
 	@Column(nullable = false)
 	private String ruolo;
-	
-	@Enumerated(EnumType.STRING)
-	private Abbonamento abbonamento;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Utente utente;
@@ -73,13 +68,5 @@ public class Credenziali {
 
 	public void setUtente(Utente utente) {
 		this.utente = utente;
-	}
-
-	public Abbonamento getAbbonamento() {
-		return abbonamento;
-	}
-
-	public void setAbbonamento(Abbonamento abbonamento) {
-		this.abbonamento = abbonamento;
 	}
 }
