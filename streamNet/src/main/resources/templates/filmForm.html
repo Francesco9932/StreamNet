@@ -35,14 +35,6 @@
             	<input type="text" placeholder="attori" th:field="*{attori}"/>
             	<div th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></div>
         	</div>
-        	
-        	<div th:if="${registi}!=null">
-      			<p>Regista:</p>
-    			<select th:field="*{registaFilm}">
-    				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
-    			</select>
-  			</div>
-  			
   			<div>
             	<p>Video:</p>
             	<input type="text" placeholder="video" th:field="*{video}"/>
@@ -71,6 +63,12 @@
             	<p>Immagine:</p>
             	<input type="text" placeholder="immagine" th:field="*{immagine}"/>
             	<div th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></div>
+        	</div>
+        	<div>
+            	<span>Regista:</span>
+  				<select th:field="*{registaFilm}">
+       				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
+    			</select>
         	</div>
 			
 			<div>

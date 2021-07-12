@@ -29,6 +29,12 @@
       			<span><input type="text" th:field="*{biografia}"></span>
       			<span th:if="${#fields.hasErrors('biografia')}" th:errors="*{biografia}"></span>
   			</div>
+  			<div>
+      			<span>Film:</span>
+      			<select th:field="*{film}">
+       				<option th:each="film: ${films}" th:value="${film.regista}" th:text="${film.titolo}"></option>
+    			</select>
+  			</div>
   			
   			<div id="submit-button">
       			<span><button type="submit">Invio</button></span>

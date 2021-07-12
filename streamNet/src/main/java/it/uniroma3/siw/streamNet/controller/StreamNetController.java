@@ -53,4 +53,10 @@ public class StreamNetController {
 		model.addAttribute("episodi", this.streamNetService.getAllEpisodio());
 		return "episodi.html";
 	}
+	
+	@RequestMapping( value = "/registi", method = RequestMethod.GET)
+	public String getAllReigisti(Model model) {
+		model.addAttribute("registi", this.streamNetService.getAllRegista());
+		return "registi.html";
+	}
 }

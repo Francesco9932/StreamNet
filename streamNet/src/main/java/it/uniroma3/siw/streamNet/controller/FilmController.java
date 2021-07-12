@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.streamNet.controller.validator.FilmValidator;
 import it.uniroma3.siw.streamNet.model.Film;
+import it.uniroma3.siw.streamNet.model.Regista;
 import it.uniroma3.siw.streamNet.service.StreamNetService;
 
 @Controller
@@ -25,6 +26,7 @@ public class FilmController {
 	@RequestMapping ( value = "/admin/aggiungiFilm", method = RequestMethod.GET)
 	public String aggiungiFilm(Model model) {
 		model.addAttribute("film", new Film());
+		model.addAttribute("registi", this.streamNetService.getAllRegista());
 		return "filmForm.html";
 	}
 	

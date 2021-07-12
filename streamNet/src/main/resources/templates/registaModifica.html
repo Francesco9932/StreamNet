@@ -4,7 +4,7 @@
 
 <body>
   <header th:replace="/fragments/components.html :: header"></header>
-  <h1>regista da modificare:</h1>
+  <h1>Regista da modificare:</h1>
   <ul>
   	<li th:each="regista : ${registi}">
   		<a th:href="@{'/admin/modificaRegista' + '/' + ${regista.id}}"th:text="|${regista.nome} ${regista.cognome}|"></a>
