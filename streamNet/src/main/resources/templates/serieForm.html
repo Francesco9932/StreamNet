@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
-
 <body>
-	<header th:replace="/fragments/components.html :: header"></header>
+<header th:replace="/fragments/components.html :: header"></header>
+<section id="section-form">
+<div class="container-form-entity">
 	<form th:action="@{/admin/serie}" method="POST" th:object="${serie}">
+	<h1>Form serie tv</h1>
 		<div>
 			<div th:if="${#fields.hasGlobalErrors()}">
   				<p style="color: #e61919; font-size: 1.8rem; font-weight: bold;"th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
 			</div>
 			<div>
-      			<span >Titolo:</span>
-      			<span><input type="text" th:field="*{titolo}"></span>
-      			<span th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></span>
+      			<p >Titolo:</p>
+      			<input type="text" th:field="*{titolo}">
+      			<div th:if="${#fields.hasErrors('titolo')}" th:errors="*{titolo}"></div>
   			</div>
   			<div>
-      			<span>Anno di uscita:</span>
-      			<span><input type="text" th:field="*{annoDiUscita}"></span>
-      			<span th:if="${#fields.hasErrors('annoDiUscita')}" th:errors="*{annoDiUscita}"></span>
+      			<p>Anno di uscita:</p>
+      			<input type="text" th:field="*{annoDiUscita}">
+      			<div th:if="${#fields.hasErrors('annoDiUscita')}" th:errors="*{annoDiUscita}"></div>
   			</div>
   			<div>
-      			<span>Descrizione:</span>
-      			<span><input type="text" th:field="*{descrizione}"></span>
-      			<span th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></span>
+      			<p>Descrizione:</p>
+      			<input type="text" th:field="*{descrizione}">
+      			<div th:if="${#fields.hasErrors('descrizione')}" th:errors="*{descrizione}"></div>
   			</div>
   			<div>
-      			<span>Attori:</span>
-      			<span><input type="text" th:field="*{attori}"></span>
-      			<span th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></span>
+      			<p>Attori:</p>
+      			<input type="text" th:field="*{attori}">
+      			<div th:if="${#fields.hasErrors('attori')}" th:errors="*{attori}"></div>
   			</div>
   			<div>
-      			<span>Lingua:</span>
-      			<span><input type="text" th:field="*{lingua}"></span>
-      			<span th:if="${#fields.hasErrors('lingua')}" th:errors="*{lingua}"></span>
+      			<p>Lingua:</p>
+      			<input type="text" th:field="*{lingua}">
+      			<div th:if="${#fields.hasErrors('lingua')}" th:errors="*{lingua}"></div>
   			</div>
   			<div>
-      			<span>Immagine:</span>
-      			<span><input type="text" th:field="*{immagine}"></span>
-      			<span th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></span>
+      			<p>Immagine:</p>
+      			<input type="text" th:field="*{immagine}">
+      			<div th:if="${#fields.hasErrors('immagine')}" th:errors="*{immagine}"></div>
   			</div>
   			<div>
-      			<span>Genere:</span>
-      			<span><input type="text" th:field="*{genere}"></span>
-      			<span th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></span>
+      			<p>Genere:</p>
+      			<input type="text" th:field="*{genere}">
+      			<div th:if="${#fields.hasErrors('genere')}" th:errors="*{genere}"></div>
   			</div>
-  			<span>Regista:</span>
+  			<p>Regista:</p>
   				<select th:field="*{registaSerie}">
        				<option th:each="regista : ${registi}" th:value="${regista.id}" th:text="|${regista.nome} ${regista.cognome}|"></option>
     			</select>
         	</div>
-  			<div id="submit-button">
-      			<span><button type="submit">Invio</button></span>
-  			</div>
   			<div>
-            	
-		</div>
+      			<button type="submit">Invio</button>
+  			</div>	
 	</form>
+	</div>
+	</section>
 	<footer th:replace="/fragments/components.html :: footer"></footer>
 </body>
 </html>
