@@ -14,8 +14,6 @@ public class SerieTvValidator implements Validator{
 
 	@Autowired
 	private StreamNetService streamNetService;
-	
-	private Boolean daModificare=false;
 
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -33,18 +31,10 @@ public class SerieTvValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "immagine", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "registaSerie", "required");
 
-		if (!errors.hasErrors() && !daModificare) {
+		if (!errors.hasErrors()) {
 			if (this.streamNetService.serieAlreadyExist((SerieTv)o)) {
 				errors.reject("duplicatoSerie");
 			}
 		}
-	}
-
-	public Boolean getDaModificare() {
-		return daModificare;
-	}
-
-	public void setDaModificare(Boolean daModificare) {
-		this.daModificare = daModificare;
 	}
 }

@@ -8,7 +8,7 @@
  	<div class="container-operazioni-admin">
  	<ul>
  		<h1 th:text="${serie.titolo}"></h1>
- 		<li th:each="stagione : ${stagioni}">
+ 		<li th:each="stagione : ${serie.stagioni}">
  			<h1 th:text="'Stagione numero.' + ${stagione.numero}"></h1>
   			<div class="content-container">
   				<img th:src="${stagione.serieTv.immagine}">

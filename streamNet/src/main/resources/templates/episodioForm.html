@@ -6,6 +6,7 @@
 <section id="section-form">
 <div class="container-form-entity">
 	<form th:action="@{/admin/episodio}" method="POST" th:object="${episodio}">
+	
 	<h1>Form episodio</h1>	
 		<div>
 			<div th:if="${#fields.hasGlobalErrors()}">
@@ -40,7 +41,7 @@
   			<div>
   				<span>Stagione:</span>
   				<select th:field="*{stagione}">
-       				<option th:each="stagione : ${stagioni}" th:value="${stagione.id}" th:text="|${stagione.numero}|"></option>
+       				<option th:each="stagione : ${stagioni}" th:value="${stagione.id}" th:text="|${stagione.numero} ${stagione.serieTv.titolo}|"></option>
     			</select>
         	</div>
   	
