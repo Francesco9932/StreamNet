@@ -148,8 +148,7 @@ public class StreamNetService {
 		else
 			return false;
 	}
-	
-	
+
 	@Transactional
 	public void rimuoviFilm(Film film) {
 		this.filmRepository.delete(film);

@@ -3,7 +3,7 @@
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
 
 <body>
-  <header th:replace = "/fragments/components.html :: header"></header>
+   <header th:replace="/fragments/components.html :: header"></header>
   <section>
   	<h1 class="category-title">Azione e avventura</h1>
   	<div class="content-container">
@@ -28,6 +28,8 @@
   	<h1 class="category-title">Serie tv</h1>
   	<div class="content-container">
   		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" ><img th:src="${serie.immagine}"></a>
+  	</div>
+  	
   	</div>
   </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
