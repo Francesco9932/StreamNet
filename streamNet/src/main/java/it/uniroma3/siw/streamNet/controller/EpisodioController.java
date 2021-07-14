@@ -83,12 +83,6 @@ public class EpisodioController {
 		return "episodio.html";
 	}
 	
-	@RequestMapping(value = "/admin/mostraEpisodiDaAggiungereAllaStagione", method = RequestMethod.GET)
-	public String mostraEpisodiDaAggiungereAllaStagione(Model model) {
-		model.addAttribute("episodi",streamNetService.getAllEpisodio());
-		return "aggiungiEpisodioAllaStagione.html";
-	}
-	
 	@RequestMapping(value = "/admin/aggiungiEpisodioAllaStagione/{idEpisodio}/{id}", method = RequestMethod.GET)
 	public String aggiungiStagioneAllaSerie(@PathVariable("id") Long id, 
 			@PathVariable("idEpisodio")Long idEpisodio, Model model) {
