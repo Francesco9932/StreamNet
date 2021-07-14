@@ -28,11 +28,6 @@
       			<div th:if="${#fields.hasErrors('dataDiNascita')}" th:errors="*{dataDiNascita}"></div>
   			</div>
   			<div>
-      			<p>Biografia:</p>
-      			<input type="text" th:field="*{biografia}"/>
-      			<div th:if="${#fields.hasErrors('biografia')}" th:errors="*{biografia}"></div>
-  			</div>
-  			<div>
       			<button type="submit">Invio</button>
   			</div>
   	</form>
