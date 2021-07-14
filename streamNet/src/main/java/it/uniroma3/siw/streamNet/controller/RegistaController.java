@@ -52,7 +52,6 @@ public class RegistaController {
 		registaModificato.setNome(regista.getNome());
 		registaModificato.setCognome(regista.getCognome());
 		registaModificato.setDataDiNascita(regista.getDataDiNascita());
-		registaModificato.setBiografia(regista.getBiografia());
 		this.streamNetService.rimuoviRegista(regista);
 		model.addAttribute("regista",registaModificato);
 		return "registaForm.html";

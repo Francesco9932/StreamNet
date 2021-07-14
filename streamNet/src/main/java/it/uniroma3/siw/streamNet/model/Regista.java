@@ -30,9 +30,6 @@ public class Regista {
 	@Column
 	private LocalDate dataDiNascita;
 	
-	@Column
-	private String biografia;
-	
 	@OneToMany(mappedBy = "registaFilm")
 	private List<Film> film;
 	
@@ -74,14 +71,6 @@ public class Regista {
 
 	public void setDataDiNascita(LocalDate dataDiNascita) {
 		this.dataDiNascita = dataDiNascita;
-	}
-
-	public String getBiografia() {
-		return biografia;
-	}
-
-	public void setBiografia(String biografia) {
-		this.biografia = biografia;
 	}
 
 	public List<Film> getFilm() {
