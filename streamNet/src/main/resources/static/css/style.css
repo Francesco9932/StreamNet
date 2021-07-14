@@ -103,6 +103,9 @@ section{
 	display: flex;
 	margin: 10px;
 }
+#content-container-laMiaLista{
+	flex-wrap: wrap;
+}
 .content-container a{
 	margin: 0px 5px 0px 5px;
 	transition: transform .2s;

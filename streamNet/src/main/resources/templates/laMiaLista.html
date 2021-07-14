@@ -5,7 +5,7 @@
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
   <section>
-  	<div class="content-container">
+  	<div id="content-container-laMiaLista" class="content-container">
   		<a th:each="film : ${films}" th:href="'/film' + '/' + ${film.id}" 
   		th:object="${film}" th:if="${film.nellaMiaLista} == true"><img th:src="${film.immagine}"></a>
   		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
