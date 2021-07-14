@@ -280,6 +280,7 @@ section{
 }
 .container-serie-info{
 	display: flex;
+	width: 60%;
 }
 .container-nellaMiaLista{
 	display: flex;
