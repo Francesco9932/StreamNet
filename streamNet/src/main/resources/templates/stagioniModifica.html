@@ -3,6 +3,7 @@
 <head th:replace="/fragments/components.html :: headerfiles(title=#{pageTitle.streamNet})"></head>
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
+ <section>
   <h1>Stagioni da modificare:</h1>
   <div class="container-lista">
   <ul>
@@ -11,7 +12,8 @@
   		<h5 th:text="${stagione.descrizione}"></h5>
   	</li>
   </ul>
-  <div>
+  </div>
+ </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

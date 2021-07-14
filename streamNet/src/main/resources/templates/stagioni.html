@@ -4,12 +4,14 @@
 
 <body>
   <header th:replace="/fragments/components.html :: header"></header>
+  <section>
   <h1>Lista Stagioni:</h1>
   <ul>
   	<li th:each="stagione : ${stagioni}">
   		  		<a th:href="@{'/aggiungiStagioneAllaSerie' + '/' + ${stagione.id} + '/' + {stagione.serie.id}}"th:text="${stagione.numero}"></a>
   	</li>
   </ul>
+  </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>
