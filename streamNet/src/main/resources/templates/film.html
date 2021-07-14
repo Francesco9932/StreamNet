@@ -39,7 +39,7 @@
   			<div class="container-nellaMiaLista" th:unless="${film.nellaMiaLista}==false">
   				<p>Rimuovi dalla mia lista</p>
   				<form th:action="@{'/rimuoviFilmDallaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
-  					<button class="nellaMiaLista-button" type="submit"><i class="fas fa-check-circle"></i></button>
+  					<button class="nellaMiaLista-button" type="submit"><i class="fas fa-times-circle"></i></button>
   				</form>
   			</div>
   		</div>

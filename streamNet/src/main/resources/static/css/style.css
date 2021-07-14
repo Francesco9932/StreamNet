@@ -285,6 +285,9 @@ section{
 	display: flex;
 	margin: 0px 10px;
 }
+.container-nellaMiaLista > form > button > i:hover{
+	color: green;
+}
 .container-nellaMiaLista p{
 	margin: 5px 0px;
 }
