@@ -55,7 +55,6 @@ public class StagioneController {
 		Stagione stagione = this.streamNetService.getStagionePerId(id);
 		Stagione stagioneModificato = new Stagione();
 		stagioneModificato.setNumero(stagione.getNumero());
-		stagioneModificato.setDescrizione(stagione.getDescrizione());
 		this.streamNetService.rimuoviStagione(stagione);
 		model.addAttribute("stagione",stagioneModificato);
 		model.addAttribute("series", this.streamNetService.getAllSerie());

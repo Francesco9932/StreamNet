@@ -22,7 +22,6 @@ public class StagioneValidator implements Validator{
 
 	@Override
 	public void validate(Object o, Errors errors) {
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descrizione", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "numero", "required");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "serieTv", "required");
 		

@@ -5,16 +5,16 @@
 <body>
   <header th:replace = "/fragments/components.html :: header"></header>
   <section>
-  	<h1 class="category-title">Serie tv Fantasy</h1>
+  	<h1 class="category-title">Serie tv Azione e avventura</h1>
   	<div class="content-container">
   		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
-  		th:object="${serie}" th:if="${serie.genere} == 'Fantasy'"><img th:src="${serie.immagine}"></a>
+  		th:object="${serie}" th:if="${serie.genere} == 'Azione e avventura'"><img th:src="${serie.immagine}"></a>
   	</div>
   	
-  	<h1 class="category-title">Serie tv Horror</h1>
+  	<h1 class="category-title">Serie tv Crime</h1>
   	<div class="content-container">
   		<a th:each="serie : ${series}" th:href="'/serie' + '/' + ${serie.id}" 
-  		th:object="${serie}" th:if="${serie.genere} == 'Horror'"><img th:src="${serie.immagine}"></a>
+  		th:object="${serie}" th:if="${serie.genere} == 'Crime'"><img th:src="${serie.immagine}"></a>
   	</div>
   	
   	<h1 class="category-title">Serie tv Commedie</h1>
