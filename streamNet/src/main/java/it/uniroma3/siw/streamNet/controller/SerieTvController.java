@@ -110,6 +110,6 @@ public class SerieTvController {
 		SerieTv serie = this.streamNetService.getSeriePerId(id);
 		serie.setNellaMiaLista(false);
 		this.streamNetService.aggiungiSerie(serie);
-		return "laMiaLista.html";
+		return "redirect:/serie/{id}";
 	}
 }

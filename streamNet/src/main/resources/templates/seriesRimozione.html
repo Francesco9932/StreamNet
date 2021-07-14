@@ -4,8 +4,8 @@
 
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
-  <h1>serie da rimuovere:</h1>
   <div class="container-lista">
+  <h1>Serie da rimuovere:</h1>
   <ul>
   	<li th:each="serie : ${series}">
   		<a th:href="@{'/admin/rimuoviSerie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>

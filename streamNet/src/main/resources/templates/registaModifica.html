@@ -4,14 +4,16 @@
 
 <body>
   <header th:replace="/fragments/components.html :: header"></header>
-  <h1>Regista da modificare:</h1>
-  <div class="container-lista">
-  <ul>
-  	<li th:each="regista : ${registi}">
-  		<a th:href="@{'/admin/modificaRegista' + '/' + ${regista.id}}"th:text="|${regista.nome} ${regista.cognome}|"></a>
-  	</li>
-  </ul>
-  </div>
+  <section>
+  	<div class="container-lista">
+  		<h1>Regista da modificare:</h1>
+  		<ul>
+  			<li th:each="regista : ${registi}">
+  				<a th:href="@{'/admin/modificaRegista' + '/' + ${regista.id}}"th:text="|${regista.nome} ${regista.cognome}|"></a>
+  			</li>
+  		</ul>
+  	</div>
+  </section>
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

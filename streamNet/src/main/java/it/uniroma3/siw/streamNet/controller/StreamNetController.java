@@ -27,6 +27,7 @@ public class StreamNetController {
 	@RequestMapping( value = "/laMiaLista", method = RequestMethod.GET)
 	public String getLaMiaLista(Model model){
 		model.addAttribute("films", this.streamNetService.getAllFilm());
+		model.addAttribute("series", this.streamNetService.getAllSerie());
 		return "laMiaLista.html";
 	}
 	

@@ -11,7 +11,7 @@
 		 encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 		</iframe>
   	</div>
-  	<div class="sub-video">
+  	<div class="container-serie-info">
   		<div class="col">
   			<div class="riga">
   				<div><p th:text="'Titolo: ' + ${film.titolo}"></p></div>
@@ -28,16 +28,21 @@
   			<div>Anno di uscita:<p th:text="${film.annoDiUscita}"></p></div>
   			<div th:if="${film.registaFilm}!=null">Regista:<p th:text="|${film.registaFilm.nome}${film.registaFilm.cognome}|"></p></div>
   			<div>Lingua:<p th:text="${film.lingua}"></p></div>
+  			
+  			<div class="container-nellaMiaLista" th:if="${film.nellaMiaLista}==false">
+  				<p>Aggiungi alla mia lista</p>
+  				<form th:action="@{'/aggiungiFilmAllaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
+  					<button class="nellaMiaLista-button" type="submit"><i class="fas fa-plus-circle"></i></button>
+ 	 			</form>
+  			</div>
+  			
+  			<div class="container-nellaMiaLista" th:unless="${film.nellaMiaLista}==false">
+  				<p>Rimuovi dalla mia lista</p>
+  				<form th:action="@{'/rimuoviFilmDallaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
+  					<button class="nellaMiaLista-button" type="submit"><i class="fas fa-check-circle"></i></button>
+  				</form>
+  			</div>
   		</div>
-  		
-  		
-  		
-  		<form th:if="${film.nellaMiaLista}==false" th:action="@{'/aggiungiFilmAllaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
-  			<button type="submit">Aggiungi a La mia lista</button>
- 	 	</form>
-  		<form th:unless="${film.nellaMiaLista}==false" th:action="@{'/rimuoviFilmDallaMiaLista' + '/' + ${film.id}}" method="GET" th:object="${film}">
-  			<button type="submit">Rimuovi da La mia lista</button>
-  		</form>
   	</div>
   </section>
   

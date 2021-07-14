@@ -252,6 +252,13 @@ section{
 	color: red;
 }
 
+.container-lista{
+	margin-left: 50px;
+}
+
+.container-lista h1{
+	margin-bottom: 10px;
+}
 
 .container-lista > ul > li > a {
 	text-decoration: none;
@@ -262,4 +269,25 @@ section{
 
 .container-lista > ul > li > a:hover{
 	color: red;
+}
+.nellaMiaLista-button{
+	border:none;
+	background: transparent;
+}
+.nellaMiaLista-button i{
+	color: white;
+	font-size: 25px;
+}
+.container-serie-info{
+	display: flex;
+}
+.container-nellaMiaLista{
+	display: flex;
+	margin: 0px 10px;
+}
+.container-nellaMiaLista p{
+	margin: 5px 0px;
+}
+.container-nellaMiaLista form{
+	margin: 0px 7px;
 }

@@ -4,14 +4,17 @@
 
 <body>
  <header th:replace="/fragments/components.html :: header"></header>
-  <h1>serie da modificare:</h1>
-  <div class="container-lista">
-  <ul>
-  	<li th:each="serie : ${series}">
-  		<a th:href="@{'/admin/modificaSerie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>
-  	</li>
-  </ul>
-  <div>
+ <section>
+ 	<div class="container-lista">
+  		<h1>Serie da modificare:</h1>
+  		<ul>
+  			<li th:each="serie : ${series}">
+  				<a th:href="@{'/admin/modificaSerie' + '/' + ${serie.id}}" th:text="${serie.titolo}"></a>
+  			</li>
+  		</ul>
+  	</div>
+ </section>
+  
   <footer th:replace = "/fragments/components.html :: footer"></footer>
 </body>
 </html>

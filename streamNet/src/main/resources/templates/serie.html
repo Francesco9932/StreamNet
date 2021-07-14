@@ -6,8 +6,22 @@
  <header th:replace="/fragments/components.html :: header"></header>
  <section>
  	<div class="container-operazioni-admin">
- 	<ul>
+ 	<div class="sub-video">
  		<h1 th:text="${serie.titolo}"></h1>
+ 		<div class="container-nellaMiaLista" th:if="${serie.nellaMiaLista}==false">
+  			<p>Aggiungi alla mia lista</p>
+  			<form th:action="@{'/aggiungiSerieAllaMiaLista' + '/' + ${serie.id}}" method="GET" th:object="${serie}">
+  				<button class="nellaMiaLista-button" type="submit"><i class="fas fa-plus-circle"></i></button>
+ 			</form>
+  		</div>
+  		<div class="container-nellaMiaLista" th:unless="${serie.nellaMiaLista}==false">
+  			<p>Rimuovi dalla mia lista</p>
+  			<form th:action="@{'/rimuoviSerieDallaMiaLista' + '/' + ${serie.id}}" method="GET" th:object="${serie}">
+  				<button class="nellaMiaLista-button" type="submit"><i class="fas fa-check-circle"></i></button>
+  			</form>
+  		</div>
+ 	</div>
+ 	<ul>
  		<li th:each="stagione : ${serie.stagioni}">
  			<h1 th:text="'Stagione numero.' + ${stagione.numero}"></h1>
   			<div class="content-container">
